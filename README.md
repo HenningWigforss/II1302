@@ -17,3 +17,18 @@ Morse code is a method used in telecommunication to encode text characters as st
 
 
 # How to Execute
+
+# Created by
+ ### Projektledare:
+ Amanda koinberg: amakoi@kth.se
+ ### Arkitekt:
+ Dan Ljungström: danljun@kth.se
+ ### Arbetsmiljö:
+ Henning wigforss: hwig@kth.se
+ ### Kravansvarig:
+ Alexander Stjernlöf: astje@kth.se
+ ### Testansvarig:
+ Murtadha Alobaidi: mhaao@kth.se
+ ### Utveckling:
+ Oskar Alin: oalin@kth.se
+ 
