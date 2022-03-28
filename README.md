@@ -9,7 +9,9 @@ The receiver then presses a button that sends an OK to the server. Then the serv
 Morse code is a method used in telecommunication to encode text characters as standardized sequences of two different signal durations, called dots and dashes, or dits and dahs. [Read more on wikipedia...](https://en.wikipedia.org/wiki/Morse_code).
 
 ![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Ska%CC%88rmavbild%202022-03-24%20kl.%2016.49.04.png)
-# Built With languages
+
+# Design (Conceptmodel)
+![This is an image](https://github.com/danljungstrom/II1302/blob/main/icons/Arbetstavla%20grupp%2014%20-%20Konceptmodell.png)
 
 
 # TOOLS
