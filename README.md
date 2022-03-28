@@ -25,7 +25,7 @@ Morse code is a method used in telecommunication to encode text characters as st
  Amanda koinberg: amakoi@kth.se
  ### Arkitekt:
  Dan Ljungström: danljun@kth.se
- ### Arbetsmiljö:
+ ### Hållbarhetsansvarig:
  Henning wigforss: hwig@kth.se
  ### Kravansvarig:
  Alexander Stjernlöf: astje@kth.se
