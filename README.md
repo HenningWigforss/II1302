@@ -11,26 +11,28 @@ Morse code is a method used in telecommunication to encode text characters as st
 ![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Ska%CC%88rmavbild%202022-03-24%20kl.%2016.49.04.png)
 
 # Design
-![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Arbetstavla%20grupp%2014%20-%20Konceptmodell.png)
 ![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Arbetstavla%20grupp%2014%20-%20produkt%20id%C3%A9%20(1).jpeg)
+![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Arbetstavla%20grupp%2014%20-%20Konceptmodell.png)
 
-# TOOLS
+
+# TOOLS  
+Firebase/Microsoft Azure
 
 
 
 # How to Execute
 
 # Created by
- ### Projektledare:
+ ### Project leader:
  Amanda koinberg: amakoi@kth.se
- ### Arkitekt:
+ ### Architect Manager:
  Dan Ljungström: danljun@kth.se
- ### Hållbarhetsansvarig:
+ ### Sustainability Manager:
  Henning wigforss: hwig@kth.se
- ### Kravansvarig:
+ ### Specification Manager:
  Alexander Stjernlöf: astje@kth.se
- ### Testansvarig:
+ ### Test Manager:
  Murtadha Alobaidi: mhaao@kth.se
- ### Utveckling:
+ ### Development Manager:
  Oskar Alin: oalin@kth.se
  
