@@ -22,16 +22,16 @@ Firebase/Microsoft Azure
 # How to Execute
 
 # Created by
- ### Projektledare:
+ ### Project leader:
  Amanda koinberg: amakoi@kth.se
- ### Arkitekt:
+ ### Architect Manager:
  Dan Ljungström: danljun@kth.se
- ### Hållbarhetsansvarig:
+ ### Sustainability Manager:
  Henning wigforss: hwig@kth.se
- ### Kravansvarig:
+ ### Specification Manager:
  Alexander Stjernlöf: astje@kth.se
- ### Testansvarig:
+ ### Test Manager:
  Murtadha Alobaidi: mhaao@kth.se
- ### Utveckling:
+ ### Development Manager:
  Oskar Alin: oalin@kth.se
  
