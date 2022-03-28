@@ -47,11 +47,14 @@ void wordPause(){
   delay(4*timeUnit);  // An extra delay of 2 time units after each word (4 since we already have a 3 time unit delay after each letter)
 }
 
-String morseMessage[] = {"...","--","..."};
+String morseMessage[] = {"...","--","..."," ","...","---","..."," "};
 
 void loop() {
   for(auto i : morseMessage){
     for(auto j : i){
+      if(j == ' '){
+        wordPause();
+      }
       if(j == '.'){
         playDot();
       }
@@ -62,5 +65,4 @@ void loop() {
     }
     letterPause();
   }
-  wordPause();
 }
