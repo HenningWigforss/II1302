@@ -10,9 +10,9 @@ Morse code is a method used in telecommunication to encode text characters as st
 
 ![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Ska%CC%88rmavbild%202022-03-24%20kl.%2016.49.04.png)
 
-# Design (Conceptmodel)
+# Design
 ![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Arbetstavla%20grupp%2014%20-%20Konceptmodell.png)
-
+![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Arbetstavla%20grupp%2014%20-%20produkt%20id%C3%A9%20(1).jpeg)
 
 # TOOLS
 
