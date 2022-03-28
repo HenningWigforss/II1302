@@ -50,13 +50,13 @@ void wordPause(){
 String morseMessage[] = {"...","--","..."};
 
 void loop() {
-  for(int i = 0; i < sizeof(morseMessage); i++){
-    for(int j = 0; j < sizeof(morseMessage[i]); j++){
-      if(morseMessage[i][j] == '.'){
+  for(auto i : morseMessage){
+    for(auto j : i){
+      if(j == '.'){
         playDot();
       }
     
-      if(morseMessage[i][j] == '-'){
+      if(j == '-'){
         playDash();
       }
     }
