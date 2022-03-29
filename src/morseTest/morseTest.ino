@@ -6,7 +6,7 @@ int bluePin3 = 6;
 int bluePin4 = 7;
 int bluePin5 = 8;
 int speaker = 9;
-int speakerFrequency = 880;
+int speakerFrequency = 440;
 int timeUnit = 150;
 
 void setup() {
@@ -47,7 +47,9 @@ void wordPause() {
 }
 
 String morseAlphabet(char letter) {
-  letter = tolower(letter);
+  if(isalpha(letter)){
+    letter = tolower(letter);
+  }
   String alphabet[][2] = {
     {"a", ".- "},
     {"b", "-... "},
@@ -92,9 +94,12 @@ String morseAlphabet(char letter) {
   };
 
   for (auto i : alphabet) {
-    if (i[0][0] == letter)
+    if (i[0][0] == letter){
       return i[1];
+    }
   }
+
+  return;
 }
 
 String translateMorse(String message){
