@@ -2,7 +2,6 @@
 2
 3
 4
-5
 
 #  [Morse Mate](https://github.com/HenningWigforss/II1302)
 The Project is part of KTH course II1302 “Projekt och projektmetoder”. 
