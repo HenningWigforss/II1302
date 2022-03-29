@@ -116,11 +116,11 @@ void loop() {
     else if (i == '-') {
       playDash();
     }
-    else if (i == ' ') {
-      letterPause();
-    }
     else if (i == ',') {
       wordPause();
+    }
+    else{
+      letterPause();
     }
   }
 }
