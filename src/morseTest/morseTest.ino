@@ -5,7 +5,10 @@ int bluePin2 = 5;
 int bluePin3 = 6;
 int bluePin4 = 7;
 int bluePin5 = 8;
-int speaker = 9;
+int startButton = 9;
+int abortButton = 10;
+int repeatButton = 11;
+int speaker = 12;
 int speakerFrequency = 440;
 int timeUnit = 150;
 
@@ -18,6 +21,9 @@ void setup() {
   pinMode(bluePin4, OUTPUT);
   pinMode(bluePin5, OUTPUT);
   pinMode(speaker, OUTPUT);
+  pinMode(startButton, INPUT);
+  pinMode(abortButton, INPUT);
+  pinMode(repeatButton, INPUT);
 }
 
 void playDot() {
@@ -47,9 +53,10 @@ void wordPause() {
 }
 
 String morseAlphabet(char letter) {
-  if(isalpha(letter)){
+  if (isalpha(letter)) {
     letter = tolower(letter);
   }
+
   String alphabet[][2] = {
     {"a", ".- "},
     {"b", "-... "},
@@ -94,7 +101,7 @@ String morseAlphabet(char letter) {
   };
 
   for (auto i : alphabet) {
-    if (i[0][0] == letter){
+    if (i[0][0] == letter) {
       return i[1];
     }
   }
@@ -102,9 +109,9 @@ String morseAlphabet(char letter) {
   return;
 }
 
-String translateMorse(String message){
+String translateMorse(String message) {
   String morseMessage = "";
-  for(auto i : message){
+  for (auto i : message) {
     morseMessage += morseAlphabet(i);
   }
   return morseMessage;
@@ -114,18 +121,28 @@ void loop() {
   String message = "Arbeta Agilt";
   String morseMessage = translateMorse(message);
 
-  for (auto i : morseMessage) {
-    if (i == '.') {
-      playDot();
+  digitalWrite(bluePin1, HIGH);
+
+  if (digitalRead(startButton) == HIGH) {
+    digitalWrite(bluePin1, LOW);
+    digitalWrite(greenPin, HIGH);
+    for (auto i : morseMessage) {
+      if (digitalRead(abortButton) == HIGH) {
+        break;
+      }
+      if (i == '.') {
+        playDot();
+      }
+      else if (i == '-') {
+        playDash();
+      }
+      else if (i == ',') {
+        wordPause();
+      }
+      else {
+        letterPause();
+      }
     }
-    else if (i == '-') {
-      playDash();
-    }
-    else if (i == ',') {
-      wordPause();
-    }
-    else{
-      letterPause();
-    }
+    digitalWrite(greenPin, LOW);
   }
 }
