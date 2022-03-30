@@ -25,7 +25,7 @@ Firebase/Microsoft Azure
 
 # Created by
  ### Project leader:
- Amanda Koinberg: amakoi@kth.se
+ Amanda Koinberg: amakoi@kth.se !!!
  ### Architect Manager:
  Dan Ljungström: danljun@kth.se
  ### Sustainability Manager:
