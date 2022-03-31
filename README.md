@@ -1,6 +1,6 @@
 
 #  [Morse Mate](https://github.com/HenningWigforss/II1302)
-The Project is part of KTH course II1302 “Projekt och projektmetoder”. 
+#### This is the Git repository for project group 14. The Project is part of KTH course II1302 “Projekt och projektmetoder”. 
 
 A user send a message through the `Cloud` to a `Morse` device via PC.
 When the message is sent to the server, it should send a message to `Morse` device and request a verification that the recipient should do again to receive the message. This is indicated by a green light coming on. 
@@ -9,12 +9,11 @@ The receiver then presses a button that sends an OK to the server. Then the serv
 # Morse code 
 Morse code is a method used in telecommunication to encode text characters as standardized sequences of two different signal durations, called dots and dashes, or dits and dahs. [Read more on wikipedia...](https://en.wikipedia.org/wiki/Morse_code).
 
-![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/mars.jpg)
+<p align="center"><a><img src="https://github.com/HenningWigforss/II1302/blob/main/icons/mars.jpg" alt="Morse code" width="900" height="500"/></a></p>
 
 # Design
 ![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Arbetstavla%20grupp%2014%20-%20produkt%20id%C3%A9%20(1).jpeg)
 ![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Arbetstavla%20grupp%2014%20-%20Konceptmodell.png)
-
 
 # TOOLS  
 Firebase/Microsoft Azure
@@ -24,16 +23,5 @@ Firebase/Microsoft Azure
 # How to Execute
 
 # Created by
- ### Project leader:
- Amanda Koinberg: amakoi@kth.se !!!
- ### Architect Manager:
- Dan Ljungström: danljun@kth.se
- ### Sustainability Manager:
- Henning wigforss: hwig@kth.se
- ### Specification Manager:
- Alexander Stjernlöf: astje@kth.se
- ### Test Manager:
- Murtadha Alobaidi: mhaao@kth.se
- ### Development Manager:
- Oskar Alin: oalin@kth.se
+### Project group 14
  
