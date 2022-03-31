@@ -11,17 +11,14 @@ Morse code is a method used in telecommunication to encode text characters as st
 
 <p align="center"><a><img src="https://github.com/HenningWigforss/II1302/blob/main/icons/mars.jpg" alt="Morse code" width="900" height="500"/></a></p>
 
-# Design
-![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Arbetstavla%20grupp%2014%20-%20produkt%20id%C3%A9%20(1).jpeg)
-![This is an image](https://github.com/HenningWigforss/II1302/blob/main/icons/Arbetstavla%20grupp%2014%20-%20Konceptmodell.png)
 
-# TOOLS  
-Firebase/Microsoft Azure
+# Cloud  
+Firebase
 
 
 
-# How to Execute
-
+# [Wiki](https://github.com/HenningWigforss/II1302)
+You can find the Project overview.
 # Created by
 ### Project group 14
  
