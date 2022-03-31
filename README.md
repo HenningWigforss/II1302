@@ -18,7 +18,7 @@ Firebase
 
 
 # [Wiki](https://github.com/HenningWigforss/II1302/wiki)
-You can find the Project overview.
+You can find the Project overview in [wiki](https://github.com/HenningWigforss/II1302/wiki).
 # Created by
 #### [Project group 14](https://github.com/HenningWigforss/II1302/wiki/Project-group-14)
  
