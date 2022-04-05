@@ -1,57 +1,60 @@
-int redPin = 2;
-int greenPin = 3;
-int bluePin1 = 4;
-int bluePin2 = 5;
-int bluePin3 = 6;
-int bluePin4 = 7;
-int bluePin5 = 8;
-int startButton = 9;
-int abortButton = 10;
-int repeatButton = 11;
-int speaker = 12;
-int speakerFrequency = 440;
-int timeUnit = 150;
+int morseLed = 2;             //The red led that will blink the morse translation
+int activeLed = 3;            //The green led that will show if a message is currently being played.
+int firstQueueLed = 4;        //First led of the queue
+int lastQueueLed = 8;         //The last led for the queue, all pins between the first and the last will be initiated.
+int startButton = 9;          //The button to start reading the next message in the queue  (Blue)
+int abortButton = 10;         //Abort playing the current message  (Red)
+int repeatButton = 11;        //Repeats the last played message (White)
+int speaker = 12;             //Speaker pin
+int speakerFrequency = 440;   //The speaker frequency in Hz
+int timeUnit = 200;           //The time unit declared in ms
 
 void setup() {
-  pinMode(redPin, OUTPUT);
-  pinMode(greenPin, OUTPUT);
-  pinMode(bluePin1, OUTPUT);
-  pinMode(bluePin2, OUTPUT);
-  pinMode(bluePin3, OUTPUT);
-  pinMode(bluePin4, OUTPUT);
-  pinMode(bluePin5, OUTPUT);
+  //Initiate all pins
+  pinMode(morseLed, OUTPUT);
+  pinMode(activeLed, OUTPUT);
   pinMode(speaker, OUTPUT);
   pinMode(startButton, INPUT);
   pinMode(abortButton, INPUT);
   pinMode(repeatButton, INPUT);
+
+  //Initiate the blue lights queue
+  for (int led = firstQueueLed; led < lastQueueLed + 1; led++) {
+    pinMode(led, OUTPUT);
+  }
 }
 
+//Plays a single dot with the defined time unit. Will also add a time unit delay after playing.
 void playDot() {
   tone(speaker, speakerFrequency);
-  digitalWrite(redPin, HIGH);
+  digitalWrite(morseLed, HIGH);
   delay(timeUnit);
   noTone(speaker);
-  digitalWrite(redPin, LOW);
+  digitalWrite(morseLed, LOW);
   delay(timeUnit);
 }
 
+//Plays a single dash with the defined time unit. Will also play a time unit delay after playing.
 void playDash() {
   tone(speaker, speakerFrequency);
-  digitalWrite(redPin, HIGH);
+  digitalWrite(morseLed, HIGH);
   delay(3 * timeUnit);
   noTone(speaker);
-  digitalWrite(redPin, LOW);
+  digitalWrite(morseLed, LOW);
   delay(timeUnit);
 }
 
+//Pause after each letter
 void letterPause() {
   delay(2 * timeUnit); // An extra delay of 2 time units for each letter(2 since we already have a 1 time unit delay after each char)
 }
 
+//Pause after each word
 void wordPause() {
   delay(4 * timeUnit); // An extra delay of 2 time units after each word (4 since we already have a 3 time unit delay after each letter)
 }
 
+//The whole morse alphabet defined, the function returns the morse translation of a single letter.
 String morseAlphabet(char letter) {
   if (isalpha(letter)) {
     letter = tolower(letter);
@@ -100,6 +103,7 @@ String morseAlphabet(char letter) {
     {" ", ","}
   };
 
+  //Loop through the alphabet to find the letter, then return it's morse translation.
   for (auto i : alphabet) {
     if (i[0][0] == letter) {
       return i[1];
@@ -109,6 +113,7 @@ String morseAlphabet(char letter) {
   return;
 }
 
+//Translates a full string and returns the translation as a string.
 String translateMorse(String message) {
   String morseMessage = "";
   for (auto i : message) {
@@ -117,32 +122,69 @@ String translateMorse(String message) {
   return morseMessage;
 }
 
-void loop() {
-  String message = "Arbeta Agilt";
-  String morseMessage = translateMorse(message);
+//Updates the message queue, turning on the leds needed.
+void updateQueue() {
+  //Fetch the queue amount
+  String fullMessage = "2;Arbeta Agilt";
+  int queue = fullMessage[0] - '0';
 
-  digitalWrite(bluePin1, HIGH);
+  //Turn on the leds to show the current queue.
+  for (int pin = firstQueueLed; pin < queue + firstQueueLed; pin++) {
+    digitalWrite(pin, HIGH);
+  }
+
+  //Turn off all the pins not part of the queue.
+  for (int pin = queue + firstQueueLed; pin < lastQueueLed + 1; pin++) {
+    digitalWrite(pin, LOW);
+  }
+}
+
+//Fetches the next message from the server, removes the queue number.
+String fetchMessage() {
+  String fullMessage = "1;Arbeta Agilt";
+
+  int start = fullMessage.indexOf(";");
+  String message = fullMessage.substring(start + 1);
+
+  
+
+  return translateMorse(message);
+}
+
+void playMessage(String morseMessage) {
+  digitalWrite(activeLed, HIGH);
+  //Loops through the message char by char.
+  for (auto i : morseMessage) {
+    if (digitalRead(abortButton) == HIGH) {
+      break;
+    }
+    if (i == '.') {
+      playDot();
+    }
+    else if (i == '-') {
+      playDash();
+    }
+    else if (i == ',') {
+      wordPause();
+    }
+    else {
+      letterPause();
+    }
+  }
+  digitalWrite(activeLed, LOW);
+}
+
+void loop() {
+  digitalWrite(activeLed, LOW);
+  String morseMessage;
+  updateQueue();
 
   if (digitalRead(startButton) == HIGH) {
-    digitalWrite(bluePin1, LOW);
-    digitalWrite(greenPin, HIGH);
-    for (auto i : morseMessage) {
-      if (digitalRead(abortButton) == HIGH) {
-        break;
-      }
-      if (i == '.') {
-        playDot();
-      }
-      else if (i == '-') {
-        playDash();
-      }
-      else if (i == ',') {
-        wordPause();
-      }
-      else {
-        letterPause();
-      }
-    }
-    digitalWrite(greenPin, LOW);
+    morseMessage = fetchMessage();
+    playMessage(morseMessage);
+  }
+
+  if (digitalRead(repeatButton) == HIGH) {
+    playMessage(morseMessage);
   }
 }
