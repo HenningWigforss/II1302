@@ -16,6 +16,28 @@ Morse code is a method used in telecommunication to encode text characters as st
 Firebase
 
 
+# hemsidan project group 14
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
 
 # [Wiki](https://github.com/HenningWigforss/II1302/wiki)
 You can find the Project overview in [wiki](https://github.com/HenningWigforss/II1302/wiki).
