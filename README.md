@@ -20,25 +20,21 @@ Firebase
 ```
 git clone https://github.com/HenningWigforss/II1302/tree/main/hemsidan14
 ```
-## Project setup
+## How to setup
+0. Clone the repository to your local machine.
+1. Run the installation of the project.
+```bash
+npm run install
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
+2. Run the build.
+```bash
 npm run build
 ```
-
-### Lints and fixes files
+3. Run the server.
+```bash
+npm run serve
 ```
-npm run lint
-```
+4. Start using the project
 
 
 # [Wiki](https://github.com/HenningWigforss/II1302/wiki)
