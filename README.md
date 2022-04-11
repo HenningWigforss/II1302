@@ -17,7 +17,9 @@ Firebase
 
 
 # hemsidan project group 14
-
+```
+git clone https://github.com/HenningWigforss/II1302/tree/main/hemsidan14
+```
 ## Project setup
 ```
 npm install
