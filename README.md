@@ -18,7 +18,7 @@ Firebase
 
 # hemsidan project group 14
 ```
-git clone https://github.com/HenningWigforss/II1302/tree/main/hemsidan14
+git clone 
 ```
 ## How to setup
 0. Clone the repository to your local machine.
