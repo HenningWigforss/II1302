@@ -110,7 +110,7 @@ String morseAlphabet(char letter) {
     }
   }
 
-  return;
+  return "";
 }
 
 //Translates a full string and returns the translation as a string.
@@ -125,7 +125,7 @@ String translateMorse(String message) {
 //Updates the message queue, turning on the leds needed.
 void updateQueue() {
   //Fetch the queue amount
-  String fullMessage = "2;Arbeta Agilt";
+  String fullMessage = "1;Arbeta Agilt";
   int queue = fullMessage[0] - '0';
 
   //Turn on the leds to show the current queue.
@@ -172,6 +172,7 @@ void playMessage(String morseMessage) {
     }
   }
   digitalWrite(activeLed, LOW);
+  return;
 }
 
 void loop() {
