@@ -60,6 +60,7 @@ String morseAlphabet(char letter) {
     letter = tolower(letter);
   }
 
+  //The alphabet contains (A-Ö, 0-9, ?!,.-()@/%"';:)
   String alphabet[][2] = {
     {"a", ".- "},
     {"b", "-... "},
@@ -100,6 +101,19 @@ String morseAlphabet(char letter) {
     {"8", "---.. "},
     {"9", "----. "},
     {"0", "----- "},
+    {"?", "..--.. "},
+    {"!", "..--. "},
+    {",", "--..-- "},
+    {".", ".-.-.- "},
+    {"(", "-.--. "},
+    {")", "-.--.- "},
+    {"@", ".--.-. "},
+    {"/", "-..-. "},
+    {"%", ".--.. "},
+    {"\"", ".-..-. "},
+    {"'", ".----. "},
+    {";", "-.-.-. "},
+    {":", "---... "},
     {" ", ","}
   };
 
@@ -125,7 +139,7 @@ String translateMorse(String message) {
 //Updates the message queue, turning on the leds needed.
 void updateQueue() {
   //Fetch the queue amount
-  String fullMessage = "1;Arbeta Agilt";
+  String fullMessage = "1|Plain Text_Morse Translation";
   int queue = fullMessage[0] - '0';
 
   //Turn on the leds to show the current queue.
@@ -141,12 +155,12 @@ void updateQueue() {
 
 //Fetches the next message from the server, removes the queue number.
 String fetchMessage() {
-  String fullMessage = "1;Arbeta Agilt";
+  String fullMessage = "1|Plain Text_Arbeta Agilt";
 
-  int start = fullMessage.indexOf(";");
+  int start = fullMessage.indexOf("_");
   String message = fullMessage.substring(start + 1);
 
-  
+
 
   return translateMorse(message);
 }
