@@ -16,25 +16,14 @@ Morse code is a method used in telecommunication to encode text characters as st
 Firebase
 
 
-# hemsidan project group 14
+# [hemsidan project group 14](https://github.com/HenningWigforss/II1302/tree/main/hemsidan)
 ```
-git clone 
+comming soon 
 ```
-## How to setup
-0. Clone the repository to your local machine.
-1. Run the installation of the project.
-```bash
-npm run install
-```
-2. Run the build.
-```bash
-npm run build
-```
-3. Run the server.
-```bash
-npm run serve
-```
-4. Start using the project
+
+# [Canvas hemsidan project group 14](https://canvas.kth.se/groups/188033/pages/project-group-14)
+
+
 
 
 # [Wiki](https://github.com/HenningWigforss/II1302/wiki)
