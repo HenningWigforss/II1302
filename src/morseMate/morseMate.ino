@@ -136,11 +136,27 @@ String translateMorse(String message) {
   return morseMessage;
 }
 
+String cmdSplit(String data, char separator, int index){
+  int amount = 0;
+  int cmdArr[] = {0, -1};
+  int strEnd = data.length()-1;
+
+  for(int i=0; i<=strEnd && amount<=index; i++){
+    if(data.charAt(i)==separator || i==strEnd){
+        amount++;
+        cmdArr[0] = cmdArr[1]+1;
+        cmdArr[1] = (i == strEnd) ? i+1 : i;
+    }
+  }
+
+  return amount>index ? data.substring(cmdArr[0], cmdArr[1]) : "";
+}
+
 //Updates the message queue, turning on the leds needed.
 void updateQueue() {
   //Fetch the queue amount
-  String fullMessage = "1|Plain Text_Morse Translation";
-  int queue = fullMessage[0] - '0';
+  String cmdMessage = "1|Plain Text|Morse Translation";
+  int queue = cmdSplit(cmdMessage, '|', 0)[0] - '0';
 
   //Turn on the leds to show the current queue.
   for (int pin = firstQueueLed; pin < queue + firstQueueLed; pin++) {
@@ -155,13 +171,8 @@ void updateQueue() {
 
 //Fetches the next message from the server, removes the queue number.
 String fetchMessage() {
-  String fullMessage = "1|Plain Text_Arbeta Agilt";
-
-  int start = fullMessage.indexOf("_");
-  String message = fullMessage.substring(start + 1);
-
-
-
+  String cmdMessage = "1|Plain Text|Arbeta Agilt";
+  String message = cmdSplit(cmdMessage, '|', 2);
   return translateMorse(message);
 }
 
