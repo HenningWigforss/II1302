@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to project group 14"/>
+    <HelloWorld msg="Welcome to project group 14 GDPR approved"/>
   </div>
 </template>
 
