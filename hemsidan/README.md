@@ -1,24 +1,12 @@
-# hemsidan
+## How to setup
+0. Clone the repository to your local machine.
+1. Run the installation of the project.
+npm run install
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
+2. Run the build.
 npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+3. Run the server.
+npm run serve
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+4. Start using the project
