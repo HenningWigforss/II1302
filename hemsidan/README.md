@@ -1,7 +1,7 @@
 0. Clone the repository to your local machine.
 1. Run the installation of the project.
 ```bash
-npm run install
+npm  install
 ```
 2. Run the build.
 ```bash
