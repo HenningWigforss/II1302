@@ -5,10 +5,11 @@ npm  install
 ```
 2. Run the build.
 ```bash
-npm run build
+npm run serve
 ```
 3. Run the server.
+
 ```bash
-npm run serve
+npm run build
 ```
 4. Start using the project
