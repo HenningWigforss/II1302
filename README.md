@@ -1,5 +1,5 @@
 
-#  [Morse Mate](https://github.com/HenningWigforss/II1302)
+#  [Morse Mate](https://morsemate.firebaseapp.com)
 #### This is the Git repository for project group 14. The Project is part of KTH course II1302 “Projekt och projektmetoder”. 
 
 A user send a message through the `Cloud` to a `Morse` device via PC.
@@ -18,7 +18,7 @@ Firebase
 
 # [hemsidan project group 14](https://github.com/HenningWigforss/II1302/tree/main/hemsidan)
 ```
-comming soon 
+https://morsemate.firebaseapp.com 
 ```
 
 # [Canvas hemsidan project group 14](https://canvas.kth.se/groups/188033/pages/project-group-14)
