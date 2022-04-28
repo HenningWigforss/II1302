@@ -4,7 +4,7 @@ package Server.Utility;
  * This class translate a string from plain text to morse code.
  */
 public class MorseTranslator {
-    private MAlphabet mAlphabet = new MAlphabet();
+    private MorseAlphabet mAlphabet = new MorseAlphabet();
 
     private String translateChar(char letter) {
         letter = Character.toLowerCase(letter);
@@ -36,11 +36,11 @@ public class MorseTranslator {
         return morseMessage;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         MorseTranslator morseTrans = new MorseTranslator();
         String message = "Arbeta Agilt";
         String morseMessage = morseTrans.translateString(message);
         System.out.println(message);
         System.out.println(morseMessage);
-    }
+    }*/
 }

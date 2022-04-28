@@ -8,7 +8,7 @@ package Server.Utility;
  * @return boolean true if OK, false if NOT OK
  */
 public class MessageCheck {
-    MAlphabet alp = new MAlphabet();
+    MorseAlphabet alp = new MorseAlphabet();
     String alphabet[][] = alp.getAlphabet();
 
     /**
@@ -37,10 +37,10 @@ public class MessageCheck {
         return false;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         String str = "false";
         MessageCheck msgCheck = new MessageCheck();
         boolean check = msgCheck.verifyMessage(str);
         System.out.println(check);
-    }
+    }*/
 }
