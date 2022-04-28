@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 package Server.Utility;
 
 public class MorseTranslator {
@@ -92,4 +90,3 @@ public class MorseTranslator {
         System.out.println(morseMessage);
     }
 }
->>>>>>> Stashed changes
