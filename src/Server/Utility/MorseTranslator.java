@@ -1,11 +1,12 @@
 package Server.Utility;
+
 /**
-    This class translate a string from plain text to morse code.
-*/
+ * This class translate a string from plain text to morse code.
+ */
 public class MorseTranslator {
     private MAlphabet mAlphabet = new MAlphabet();
 
-    private String morseAlphabet(char letter) {
+    private String translateChar(char letter) {
         letter = Character.toLowerCase(letter);
 
         // The alphabet contains (A-Ö, 0-9, ?!,.-()@/%"';:)
@@ -22,14 +23,15 @@ public class MorseTranslator {
     }
 
     /**
-     *  Translates a full string and returns the translation as a string.
-     *@param message the string that should be translated.
-     *@return morseMessage string. 
-     */ 
-    public String translateMorse(String message) {
+     * Translates a full string and returns the translation as a string.
+     * 
+     * @param message the string that should be translated.
+     * @return morseMessage string.
+     */
+    public String translateString(String message) {
         String morseMessage = "";
         for (char i : message.toCharArray()) {
-            morseMessage += morseAlphabet(i);
+            morseMessage += translateChar(i);
         }
         return morseMessage;
     }
@@ -37,7 +39,7 @@ public class MorseTranslator {
     public static void main(String[] args) {
         MorseTranslator morseTrans = new MorseTranslator();
         String message = "Arbeta Agilt";
-        String morseMessage = morseTrans.translateMorse(message);
+        String morseMessage = morseTrans.translateString(message);
         System.out.println(message);
         System.out.println(morseMessage);
     }
