@@ -9,24 +9,26 @@ public class MessageCheck {
     String alphabet[][]= alp.getAlphabet();
 
     public boolean verifyMessage(String msg){
-        msg.toLowerCase();
 
         for(char ch : msg.toCharArray()){
-            if(!testChar(ch)) return false;
+            if(!testChar(ch)){
+                return false;
+            }
         }
         return true;
+
     }
 
     private boolean testChar(char ch){
         for(String[] i : alphabet){
-            if(i[0].charAt(0) == ch) return true;
+            if(i[0].charAt(0) == Character.toLowerCase(ch)) return true;
         }
         return false;
     }
 
 
     public static void main(String[] args){
-        String str = "Hej detta är ett morsemeddelande";
+        String str = "hej detta är ett morsemeddelande";
         MessageCheck msgCheck = new MessageCheck();
         boolean check = msgCheck.verifyMessage(str);
         System.out.println(check);

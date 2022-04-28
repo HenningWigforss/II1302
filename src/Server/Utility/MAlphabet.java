@@ -57,9 +57,6 @@ public class MAlphabet {
         { " ", "," }
 };
 
-    public MAlphabet(){
-
-    }
     public String[][] getAlphabet(){
         return this.alphabet;
     }
