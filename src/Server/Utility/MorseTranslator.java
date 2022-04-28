@@ -65,8 +65,8 @@ public class MorseTranslator {
 
         // Loop through the alphabet to find the letter, then return it's morse
         // translation.
-        for (String[][] i : alphabet) {
-            if (i[0][0] == letter) {
+        for (String[] i : alphabet) {
+            if (i[0].charAt(0) == letter) {
                 return i[1];
             }
         }
