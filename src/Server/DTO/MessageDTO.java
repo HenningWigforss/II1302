@@ -6,7 +6,6 @@ package Server.DTO;
  */
 
 public class MessageDTO {
-
     private String plainText;
     private String morseText;
     private String userName;
