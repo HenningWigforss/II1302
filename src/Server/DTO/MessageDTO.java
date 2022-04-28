@@ -9,7 +9,7 @@ public class MessageDTO {
     private String plainText;
     private String morseText;
     private String userName;
-    private int id = 0;
+    private int id;
     private boolean status;
 
     /**
@@ -19,11 +19,11 @@ public class MessageDTO {
      *               the message.
      * @param id     int containing the id for the message.
      */
-    public MessageDTO(ClientMessageDTO msgDTO) {
+    public MessageDTO(ClientMessageDTO msgDTO, int id) {
         this.userName = msgDTO.getUserName();
         this.plainText = msgDTO.getPlainText();
         this.morseText = null;
-        this.id = id++;
+        this.id = id;
         this.status = false;
     }
 

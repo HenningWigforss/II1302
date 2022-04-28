@@ -7,7 +7,7 @@ import Server.DTO.MessageDTO;
 
 public class MessageHandler {
     private int nextId;
-    private LinkedList messageList;
+    private LinkedList<MessageDTO> messageList;
 
     public MessageHandler(){
         this.nextId = 0;
@@ -15,7 +15,8 @@ public class MessageHandler {
     }
     public void addMessage(ClientMessageDTO cMessage){
         nextId++;
-        messageList.add(new MessageDTO(cMessage, nextId));
+        MessageDTO newMessage = new MessageDTO(cMessage, nextId);
+        this.messageList.add(newMessage);
     }
 
     public static void main(String[] args) {
@@ -26,11 +27,9 @@ public class MessageHandler {
         messageHandler.addMessage(cMessage);
         messageHandler.addMessage(cMessage2);
 
-        MessageDTO mMmm = new MessageDTO(cMessage, 5);
-        System.out.println(mMmm.getId());
 
-        System.out.println(messageHandler.messageList.size());
-        System.out.println(messageHandler.messageList.getFirst());
-        //System.out.println(messageHandler.messageList.get(1).getId());
+        System.out.println(messageHandler.messageList.get(0).getId());
+        System.out.println(messageHandler.messageList.get(1).getId());
+
     }
 }
