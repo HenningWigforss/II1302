@@ -5,7 +5,7 @@ package Server.DTO;
  * Data Transfer Object.
  */
 
-public class CommandMessage {
+public class CommandMessageDTO {
     private String command;
     private int numberInQueue;
     private String plainText;
@@ -19,7 +19,7 @@ public class CommandMessage {
      * @param MessageDTO    object of type MessageDTO containing message
      *                      information.
      */
-    public CommandMessage(String cmd, int numberInQueue, MessageDTO msgDTO) {
+    public CommandMessageDTO(String cmd, int numberInQueue, MessageDTO msgDTO) {
         this.command = cmd;
         this.numberInQueue = numberInQueue;
         this.plainText = msgDTO.getPlainText();

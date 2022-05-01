@@ -1,6 +1,6 @@
 package Server.Utility;
 
-public class MAlphabet {
+public class MorseAlphabet {
     private String[][] alphabet = {
             { "a", ".- " },
             { "b", "-... " },
