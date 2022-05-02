@@ -1,6 +1,7 @@
 {
   "projects": {
-    "test": "morsemate"
+    "test": "morsemate",
+    "default": "morsemate"
   },
   "targets": {}
 }
