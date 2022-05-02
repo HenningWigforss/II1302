@@ -44,6 +44,13 @@ public class MessageHandler {
     public CommandMessageDTO fetchCommandMessage(String cmd) {
         return new CommandMessageDTO(cmd, getMessageInQueue(), this.messageList.getFirst());
     }
+    /**
+     * Gets the first message from list
+     * @return MessageDTO
+     */
+    public MessageDTO getFirstMessage(){
+        return messageList.getFirst();
+    }
 
     /**
      * Lets the Message handler know that the message has been read and deletes the

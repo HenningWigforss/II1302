@@ -5,20 +5,14 @@ import java.util.LinkedList;
 import Server.DTO.ClientMessageDTO;
 import Server.DTO.CommandMessageDTO;
 import Server.DTO.MessageDTO;
-import Server.Integration.ClientHandler;
 import Server.Integration.HandlerCreator;
-import Server.Integration.MorseMateHandler;
 import Server.Model.MessageHandler;
 
 public class ServerController {
     MessageHandler messageHandler;
-    ClientHandler clientHandler;
-    MorseMateHandler morseMateHandler;
 
     public ServerController(HandlerCreator handler) {
         this.messageHandler = handler.getMessageHandler();
-        this.clientHandler = handler.getClientHandler();
-        this.morseMateHandler = handler.getMorseMateHandler();
     }
 
     /**
@@ -55,4 +49,21 @@ public class ServerController {
         return messageHandler.fetchMessageList();
     }
 
+    /**
+     * Gets the nuumber of messages in queue
+     * 
+     * @return int queu size.
+     */
+    public int getMessageInQueue() {
+        return messageHandler.getMessageInQueue();
+    }
+
+    /**
+     * Gest the first message from message handler.
+     * 
+     * @return MessageDTO
+     */
+    public MessageDTO getFirstMessage() {
+        return messageHandler.getFirstMessage();
+    }
 }
