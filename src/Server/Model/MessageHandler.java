@@ -44,7 +44,7 @@ public class MessageHandler {
      * Lets the Message handler know that the message has been read and deletes the
      * first message in queue.
      */
-    public void messageRead() {
+    public void removeRead() {
         this.messageList.removeFirst();
     }
 
@@ -65,7 +65,12 @@ public class MessageHandler {
     public LinkedList<MessageDTO> getMessageList() {
         return this.messageList;
     }
-
+    /**
+     * Updates real time date base.
+     */
+    public void updateRTDB(){
+        return ;
+    }
     public static void main(String[] args) {
         MessageHandler messageHandler = new MessageHandler();
         ClientMessageDTO cMessage = new ClientMessageDTO("Arbeta Agilt", "Anders Sjögren");
@@ -75,6 +80,13 @@ public class MessageHandler {
         messageHandler.addMessage(cMessage2);
 
         System.out.println(messageHandler.getMessageInQueue());
+
+        LinkedList<MessageDTO> msgList = new LinkedList<>();
+
+        msgList = messageHandler.getMessageList();
+
+        System.out.println(msgList.getFirst().getPlainText());
+
 
     }
 }
