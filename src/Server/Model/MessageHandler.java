@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import Server.DTO.ClientMessageDTO;
 import Server.DTO.CommandMessageDTO;
 import Server.DTO.MessageDTO;
+import Server.Utility.MorseTranslator;
 
 /**
  * Class that handles all messages from the client.
@@ -12,11 +13,13 @@ import Server.DTO.MessageDTO;
 public class MessageHandler {
     private int nextId;
     private LinkedList<MessageDTO> messageList;
+    private MorseTranslator morseTranslator;
 
     // Create a new instance of the message handler.
     public MessageHandler() {
         this.nextId = 0;
         this.messageList = new LinkedList<MessageDTO>();
+        this.morseTranslator = new MorseTranslator();
     }
 
     /**
@@ -27,6 +30,8 @@ public class MessageHandler {
     public void addMessage(ClientMessageDTO cMessage) {
         nextId++;
         MessageDTO newMessage = new MessageDTO(cMessage, nextId);
+        String morse = morseTranslator.translateString(newMessage.getPlainText());
+        newMessage.setMorseText(morse);
         this.messageList.add(newMessage);
     }
 
@@ -62,7 +67,7 @@ public class MessageHandler {
      * 
      * @return messageList.
      */
-    public LinkedList<MessageDTO> getMessageList() {
+    public LinkedList<MessageDTO> fetchMessageList() {
         return this.messageList;
     }
     /**
@@ -83,7 +88,7 @@ public class MessageHandler {
 
         LinkedList<MessageDTO> msgList = new LinkedList<>();
 
-        msgList = messageHandler.getMessageList();
+        msgList = messageHandler.fetchMessageList();
 
         System.out.println(msgList.getFirst().getPlainText());
 
