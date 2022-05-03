@@ -5,17 +5,20 @@ import java.util.LinkedList;
 import Server.Controller.ServerController;
 import Server.DTO.MessageDTO;
 
-public class ClientHandler {
+public class ClientView {
     ServerController controller;
 
     /**
-     * Listen to the client side for incomming messages and do appropriate commands.
+     * Constructor for theClienthandler class.
+     * @param c ServerController.
      */
     public void ClientHandler(ServerController c) {
         this.controller = c;
         this.clientListener();
     }
-
+    /**
+     * Listen to the client side for incomming messages and do appropriate commands.
+     */
     private void clientListener() {
 
     }
