@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "test": "morsemate",
+    "default": "morsemate"
+  },
+  "targets": {}
+}
