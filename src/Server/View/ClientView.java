@@ -2,7 +2,10 @@ package Server.View;
 
 import java.util.LinkedList;
 
+import javax.print.event.PrintServiceAttributeEvent;
+
 import Server.Controller.ServerController;
+import Server.DTO.ClientMessageDTO;
 import Server.DTO.MessageDTO;
 
 public class ClientView {
@@ -46,4 +49,12 @@ public class ClientView {
 
     }
 
+    private boolean addMessage(String msg, String user){
+        if(!controller.checkMessage(msg)){
+            return false;
+        }
+        ClientMessageDTO clientMsg = new ClientMessageDTO(msg, user);
+        controller.addMessage(clientMsg);
+        return true;
+    }
 }

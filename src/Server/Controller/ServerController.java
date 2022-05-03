@@ -7,12 +7,15 @@ import Server.DTO.CommandMessageDTO;
 import Server.DTO.MessageDTO;
 import Server.Integration.HandlerCreator;
 import Server.Model.MessageHandler;
+import Server.Utility.MessageCheck;
 
 public class ServerController {
     MessageHandler messageHandler;
+    MessageCheck messageChecker;
 
     public ServerController(HandlerCreator handler) {
         this.messageHandler = handler.getMessageHandler();
+        this.messageChecker = handler.getMessageCheck();
     }
 
     /**
@@ -65,5 +68,13 @@ public class ServerController {
      */
     public MessageDTO getFirstMessage() {
         return messageHandler.getFirstMessage();
+    }
+    /**
+     * Method to verify message
+     * @param text String containing the text.
+     * @return Boolean true or false.
+     */
+    public boolean checkMessage(String text){
+        return messageChecker.verifyMessage(text);
     }
 }
