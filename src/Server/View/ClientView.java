@@ -15,7 +15,7 @@ public class ClientView {
      * Constructor for theClienthandler class.
      * @param c ServerController.
      */
-    public void ClientHandler(ServerController c) {
+    public ClientView(ServerController c) {
         this.controller = c;
         this.clientListener();
     }
@@ -44,12 +44,12 @@ public class ClientView {
         return userList;
     }
 
-    private MessageDTO getFirstMessage() {
+    public MessageDTO getFirstMessage() {
         return controller.getFirstMessage();
 
     }
 
-    private boolean addMessage(String msg, String user){
+    public boolean addMessage(String msg, String user){
         if(!controller.checkMessage(msg)){
             return false;
         }

@@ -16,7 +16,11 @@ public class MorseMateHandler {
         
     }
 
-    private String fetchMessage(){
+    public void removeRead(){
+        controller.messageIsRead();
+    }
+
+    public String fetchMessage(){
         CommandMessageDTO cmdMessage = controller.fetchCommandMessage("Default");
         String morseCMD = cmdMessage.getCommand() + '|' + cmdMessage.getNumberInQueue() + '|' + cmdMessage.getMorseText();
 
