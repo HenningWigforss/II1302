@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img alt="Vue logo" src="./assets/logo.png" height="300">
     <HelloWorld msg="Welcome to project group 14 GDPR approved"/>
   </div>
 </template>
