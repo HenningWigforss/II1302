@@ -3,10 +3,9 @@
     <!-- <h1>{{ msg }}</h1> -->
     <h2>Projekt Grupp 14</h2>
     <h2>Morse Mate</h2>
-    <p>
-      Morse Mate är ett system för Morse-kommunikation bestående av två delar. Ett webbaserat användargränssnitt samt ett Arduino-chipkit. En användare kan via hemsidan ange ett meddelande i form av vanlig text. Detta meddelande skickas sedan via molnet där det först översätts till Morse, för att sedan skickas till ett chipkit som visar meddelandet i form av Morsesignaler.
-    </p>
-
+    <p>Morse Mate är ett system för Morse-kommunikation bestående av två delar. Ett webbaserat användargränssnitt samt ett Arduino-chipkit.</p>
+    <p>En användare kan via hemsidan ange ett meddelande i form av vanlig text. Detta meddelande skickas sedan via molnet där det först</p>
+    <p>översätts till Morse, för att sedan skickas till ett chipkit som visar meddelandet i form av Morsesignaler.</p>
     <div class ="inputAndButton">
     <form class="form-inline" @submit.prevent="searchName">
         <h3><label>Enter Message</label></h3>
