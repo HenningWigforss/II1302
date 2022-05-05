@@ -7,7 +7,7 @@
       <!-- picture of our logo -->
       <img alt="Vue logo" src="./assets/logo.png" height="300">
 
-      <!-- Description of webbpage -->
+      <!-- Description text of what Morse Mate is -->
       <p>Morse Mate är ett system för Morse-kommunikation bestående av två delar. 
         Ett webbaserat användargränssnitt samt ett Arduino-chipkit.</p>
       <p>En användare kan via hemsidan ange ett meddelande i form av vanlig text. 
@@ -16,7 +16,6 @@
         som visar meddelandet i form av Morsesignaler.</p>
     </div>
   
-    <!-- the webpage main content -->
     <div class = "mainContent"> 
       
       <!-- input field and submit button -->
@@ -32,6 +31,7 @@
       <p>{{messageInputFromUser}}</p>
 
 
+
       <!-- output fields -->
       <div>
         <h3>Output</h3>
@@ -43,7 +43,17 @@
     
     
     <!-- webbpage footer -->
+
+      <!-- output fields prints out next message in plain/morse text -->
+      <h3>Output</h3>
+      <textarea name="textOutputPlain" id="textOutputPlain" cols="30" rows="10" readonly></textarea>
+      <textarea name="textOutputMorse" id="textOutputMorse" cols="30" rows="10" readonly></textarea>
+    </div>
+  
+
+
     <div class = "footer">
+      <!-- Links to our github page -->
       <h3>Info</h3>
         <ul>
           <li><a href="https://github.com/HenningWigforss/II1302/wiki/Project-group-14" target="_blank" rel="noopener">About us</a></li>
@@ -57,6 +67,7 @@
 
 <!-- javaScript delen -->
 <script>
+
 // this is a comment in JS
   export default {
     data() {
@@ -89,6 +100,12 @@
 
     }
   }
+
+=======
+// this is a comment in JS. This script part is BS, FIX IT!
+export default {
+  name: 'App'
+}
 
 </script>
 
