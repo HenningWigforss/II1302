@@ -40,17 +40,6 @@
       </div>
 
     </div>
-    
-    
-    <!-- webbpage footer -->
-
-      <!-- output fields prints out next message in plain/morse text -->
-      <h3>Output</h3>
-      <textarea name="textOutputPlain" id="textOutputPlain" cols="30" rows="10" readonly></textarea>
-      <textarea name="textOutputMorse" id="textOutputMorse" cols="30" rows="10" readonly></textarea>
-    </div>
-  
-
 
     <div class = "footer">
       <!-- Links to our github page -->
@@ -74,7 +63,8 @@
       return {
         messageInputFromUser: '',
         nextPlainMessage: '',
-        nextMorseMessage: ''
+        nextMorseMessage: '',
+        name: 'App'
       }
     },
     methods: {
@@ -100,12 +90,6 @@
 
     }
   }
-
-=======
-// this is a comment in JS. This script part is BS, FIX IT!
-export default {
-  name: 'App'
-}
 
 </script>
 
