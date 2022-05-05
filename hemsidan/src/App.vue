@@ -49,19 +49,6 @@
       <textarea name="textOutputPlain" id="textOutputPlain" cols="30" rows="10" readonly></textarea>
       <textarea name="textOutputMorse" id="textOutputMorse" cols="30" rows="10" readonly></textarea>
     </div>
-  
-
-
-    <div class = "footer">
-      <!-- Links to our github page -->
-      <h3>Info</h3>
-        <ul>
-          <li><a href="https://github.com/HenningWigforss/II1302/wiki/Project-group-14" target="_blank" rel="noopener">About us</a></li>
-          <li><a href="https://github.com/HenningWigforss/II1302" target="_blank" rel="noopener">GitHub</a></li>
-        </ul>
-    </div>
-
-  </div>
 </template>
 
 
