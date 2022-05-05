@@ -24,6 +24,7 @@
             <label >Input</label>
             <input type="messageInputFromUser" v-model="messageInputFromUser" placeholder="Type message...">   
             <label type="allowedSigns" >(A-Ö, 0-9, ?!,.-()@/%"';:)</label>
+            <label type="allowedSigns" >Amanda testar grejjer</label>
             <button type="submit" value="Submit" @click="submitUserInput">Submit</button>
         </form>
       </div>
