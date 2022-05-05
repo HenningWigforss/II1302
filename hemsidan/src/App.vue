@@ -19,10 +19,30 @@
     <div class = "mainContent"> 
       
       <!-- input field and submit button -->
-      <form class="form-inline" @submit.prevent="searchName">
-          <input type="text" id ="messageInputFromUser" name="messageInputFromUser" value="Type message...">   
-          <input type="submit" id="submitButtonInputFromUser" name="submitButtonInputFromUser" value="Submit"/> 
-      </form>
+      <div>
+        <form>
+            <label >Input</label>
+            <input type="messageInputFromUser" v-model="messageInputFromUser" placeholder="Type message...">   
+            <label type="allowedSigns" >(A-Ö, 0-9, ?!,.-()@/%"';:)</label>
+            <button type="submit" value="Submit" @click="submitUserInput">Submit</button>
+        </form>
+      </div>
+      
+      <p>{{messageInputFromUser}}</p>
+
+
+
+      <!-- output fields -->
+      <div>
+        <h3>Output</h3>
+        <textarea name="textOutputPlain" id="textOutputPlain" cols="30" rows="10" readonly></textarea>
+        <textarea name="textOutputMorse" id="textOutputMorse" cols="30" rows="10" readonly></textarea>
+      </div>
+
+    </div>
+    
+    
+    <!-- webbpage footer -->
 
       <!-- output fields prints out next message in plain/morse text -->
       <h3>Output</h3>
@@ -30,6 +50,7 @@
       <textarea name="textOutputMorse" id="textOutputMorse" cols="30" rows="10" readonly></textarea>
     </div>
   
+
 
     <div class = "footer">
       <!-- Links to our github page -->
@@ -46,10 +67,46 @@
 
 <!-- javaScript delen -->
 <script>
+
+// this is a comment in JS
+  export default {
+    data() {
+      return {
+        messageInputFromUser: '',
+        nextPlainMessage: '',
+        nextMorseMessage: ''
+      }
+    },
+    methods: {
+
+      //Submits the string message user inputs on webpage
+      submitUserInput() {
+        //todo
+      },
+
+
+      //retrieves the plain message that is first in queue
+      retrieveNextPlainMessage() {
+        //todo
+      },
+
+      //retrieves the morse translated message that is first in queue
+      retrieveNextMorseMessage() {
+        //todo
+      }
+
+
+
+
+    }
+  }
+
+=======
 // this is a comment in JS. This script part is BS, FIX IT!
 export default {
   name: 'App'
 }
+
 </script>
 
 
