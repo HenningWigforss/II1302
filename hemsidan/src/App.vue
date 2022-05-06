@@ -20,13 +20,9 @@
       
       <!-- input field and submit button -->
       <div>
-        <form>
-            <label >Input</label>
-            <input type="messageInputFromUser" v-model="messageInputFromUser" placeholder="Type message...">   
-            <label type="allowedSigns" >(A-Ö, 0-9, ?!,.-()@/%"';:)</label>
-            <label type="allowedSigns" >Amanda testar grejjer</label>
-            <button type="submit" value="Submit" @click="submitUserInput">Submit</button>
-        </form>
+            <input type="text" v-model="messageInputFromUser" placeholder="Type message..." v-on:keypress.enter="submitUserInput()">   
+            <button type="button" value="submit" @click="submitUserInput()">Submit</button>
+            <label type="allowedSigns" > (A-Ö, 0-9, ?!,.-()@/%"';:)</label>
       </div>
       
       <p>{{messageInputFromUser}}</p>
@@ -36,8 +32,8 @@
       <!-- output fields -->
       <div>
         <h3>Output</h3>
-        <textarea name="textOutputPlain" id="textOutputPlain" cols="30" rows="10" readonly></textarea>
-        <textarea name="textOutputMorse" id="textOutputMorse" cols="30" rows="10" readonly></textarea>
+        <textarea v-model=nextPlainMessage name="textOutputPlain" id="textOutputPlain" cols="30" rows="10" readonly></textarea>
+        <textarea v-model=nextMorseMessage name="textOutputMorse" id="textOutputMorse" cols="30" rows="10" readonly></textarea>
       </div>
 
     </div>
@@ -72,7 +68,8 @@
 
       //Submits the string message user inputs on webpage
       submitUserInput() {
-        //todo
+        this.nextPlainMessage = this.messageInputFromUser
+        this.nextMorseMessage = this.messageInputFromUser.toUpperCase()
       },
 
 
