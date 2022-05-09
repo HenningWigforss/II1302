@@ -53,6 +53,7 @@
 
 <!-- javaScript delen -->
 <script>
+import BackEndService from './services/BackEndService'
 
 // this is a comment in JS
   export default {
@@ -69,7 +70,9 @@
       //Submits the string message user inputs on webpage
       submitUserInput() {
         this.nextPlainMessage = this.messageInputFromUser
-        this.nextMorseMessage = this.messageInputFromUser.toUpperCase()
+        this.nextMorseMessage = BackEndService.translateMorse(this.messageInputFromUser).then((response) => {
+            this.nextMorseMessage = response.data
+        })
       },
 
 
