@@ -7,7 +7,11 @@ import javax.print.event.PrintServiceAttributeEvent;
 import BackEnd.Controller.BackEndController;
 import BackEnd.DTO.ClientMessageDTO;
 import BackEnd.DTO.MessageDTO;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.annotation.Bean;
 
+@RestController
 public class ClientView {
     BackEndController controller;
 
@@ -19,6 +23,12 @@ public class ClientView {
         this.controller = c;
         this.clientListener();
     }
+
+    @GetMapping("/")
+	public String index() {
+		return "Greetings from Spring Boot!";
+	}
+    
     /**
      * Listen to the client side for incomming messages and do appropriate commands.
      */
