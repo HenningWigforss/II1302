@@ -1,60 +1,58 @@
-package BackEnd.DTO;
-
 /**
  * The CommandMessage class represents the command message a
  * Data Transfer Object.
  */
 
-public class CommandMessageDTO {
-    private String command;
-    private int numberInQueue;
-    private String plainText;
-    private String morseText;
+class CommandMessageDTO {
+    command;
+    numberInQueue;
+    plainText;
+    morseText;
 
     /**
      * Creates a new instance of the class CommandMessage.
      * 
-     * @param cmd           String containing the command from BackEnd.
-     * @param numberInQueue int containing the number of message in queue.
+     * @param cmd           containing the command from BackEnd.
+     * @param numberInQueue containing the number of message in queue.
      * @param MessageDTO    object of type MessageDTO containing message
      *                      information.
      */
-    public CommandMessageDTO(String cmd, int numberInQueue, MessageDTO msgDTO) {
+    CommandMessageDTO(cmd, numberInQueue, msgDTO) {
         this.command = cmd;
         this.numberInQueue = numberInQueue;
         this.plainText = msgDTO.getPlainText();
         this.morseText = msgDTO.getMorseText();
     }
 
-    public String getCommand() {
+    getCommand() {
         return this.command;
     }
 
-    public int getNumberInQueue() {
+    getNumberInQueue() {
         return this.numberInQueue;
     }
 
-    public String getPlainText() {
+    getPlainText() {
         return this.plainText;
     }
 
-    public String getMorseText() {
+    getMorseText() {
         return this.morseText;
     }
 
-    public void setCommand(String cmd) {
+    setCommand(cmd) {
         this.command = cmd;
     }
 
-    public void setNumberInQueue(int number) {
+    setNumberInQueue(number) {
         this.numberInQueue = number;
     }
 
-    public void setPlainText(String text) {
+    setPlainText(text) {
         this.plainText = text;
     }
 
-    public void setMorseText(String morse) {
+    setMorseText(morse) {
         this.morseText = morse;
     }
 
