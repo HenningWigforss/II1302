@@ -16,7 +16,7 @@ Morse code is a method used in telecommunication to encode text characters as st
 Firebase
 
 
-# [hemsidan project group 14](https://github.com/HenningWigforss/II1302/tree/main/hemsidan)
+# [hemsidan project group 14](https://morsemate.firebaseapp.com )
 ```
 https://morsemate.firebaseapp.com 
 ```
