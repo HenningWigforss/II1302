@@ -6,8 +6,9 @@
   <router-view/>
 </template>
 
+import firebaseConfig from './components/firebaseConfig'
 import Firebase from 'firebase'
-import toastr from 'toastr'
+Firebase.initializeApp(firebaseConfig)
 
 <style lang="scss">
 #app {
