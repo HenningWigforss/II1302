@@ -12,4 +12,11 @@ npm run serve
 ```bash
 npm run build
 ```
-4. Start using the project
+
+4. Run the spring boot application from the src folder
+```bash
+gradlew bootRun --args='--server.port=8888'
+```
+
+5. Start using the project
+
