@@ -8,7 +8,7 @@ import {morseAlphabet} from './MorseAlphabet'
         // Loop through the alphabet to find the letter, then return it's morse
         // translation.
         morseAlphabet.forEach (i => {
-            if (i[0].charAt(0) == letter) {
+            if (i[0].charAt(0) == letter.toLowerCase()) {
                 morseLetter = i[1];
             }
         })
@@ -36,3 +36,5 @@ import {morseAlphabet} from './MorseAlphabet'
         System.out.println(message);
         System.out.println(morseMessage);
     }*/
+
+    export default translateString

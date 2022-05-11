@@ -6,10 +6,6 @@
   <router-view/>
 </template>
 
-import firebaseConfig from './components/firebaseConfig'
-import Firebase from 'firebase'
-Firebase.initializeApp(firebaseConfig)
-
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

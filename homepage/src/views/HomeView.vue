@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    
     <div class="home">
       
       <!-- picture of our logo -->
@@ -33,10 +32,6 @@
 
     </div>
 
-
-
-
-
 <div class="container">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <p class="col-md-4 mb-0 text-muted">&copy; 2022 Morsemate</p>
@@ -53,15 +48,14 @@
   </footer>
 </div>
 
-
-
-
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { translateString } from '@/backend/Utility/MorseTranslator.js'
+import RTDB from '../firebase.js'
 
 @Options({
   components: {
@@ -78,7 +72,7 @@ export default class HomeView extends Vue {
       //Submits the string message user inputs on webpage
       submitUserInput() {
         this.nextPlainMessage = this.messageInputFromUser
-        this.nextMorseMessage = this.messageInputFromUser
+        this.nextMorseMessage = translateString(this.messageInputFromUser)
       }
 
       //retrieves the plain message that is first in queue
