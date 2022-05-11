@@ -1,24 +1,15 @@
-package BackEnd.Model;
-
-import java.util.LinkedList;
-
-import BackEnd.DTO.ClientMessageDTO;
-import BackEnd.DTO.CommandMessageDTO;
-import BackEnd.DTO.MessageDTO;
-import BackEnd.Utility.MorseTranslator;
-
 /**
  * Class that handles all messages from the client.
  */
-public class MessageHandler {
-    private int nextId;
-    private LinkedList<MessageDTO> messageList;
-    private MorseTranslator morseTranslator;
+export class MessageHandler {
+    nextId;
+    messageList;
+    morseTranslator;
 
     // Create a new instance of the message handler.
-    public MessageHandler() {
-        this.nextId = 0;
-        this.messageList = new LinkedList<MessageDTO>();
+    MessageHandler() {
+        this.nextId = 0
+        this.messageList
         this.morseTranslator = new MorseTranslator();
     }
 
@@ -27,10 +18,10 @@ public class MessageHandler {
      * 
      * @param cMessage a ClientMessageDTO created by the client handler.
      */
-    public void addMessage(ClientMessageDTO cMessage) {
+    addMessage(cMessage) {
         nextId++;
-        MessageDTO newMessage = new MessageDTO(cMessage, nextId);
-        String morse = morseTranslator.translateString(newMessage.getPlainText());
+        newMessage = new MessageDTO(cMessage, nextId);
+        morse = morseTranslator.translateString(newMessage.getPlainText());
         newMessage.setMorseText(morse);
         this.messageList.add(newMessage);
     }
@@ -41,14 +32,14 @@ public class MessageHandler {
      *            dto.
      * @return a commandMessageDTO with all the info needed.
      */
-    public CommandMessageDTO fetchCommandMessage(String cmd) {
+    fetchCommandMessage(cmd) {
         return new CommandMessageDTO(cmd, getMessageInQueue(), this.messageList.getFirst());
     }
     /**
      * Gets the first message from list
      * @return MessageDTO
      */
-    public MessageDTO getFirstMessage(){
+    getFirstMessage(){
         return messageList.getFirst();
     }
 
@@ -56,7 +47,7 @@ public class MessageHandler {
      * Lets the Message handler know that the message has been read and deletes the
      * first message in queue.
      */
-    public void removeRead() {
+    removeRead() {
         this.messageList.removeFirst();
     }
 
@@ -65,7 +56,7 @@ public class MessageHandler {
      * 
      * @return
      */
-    public int getMessageInQueue() {
+    getMessageInQueue() {
         return this.messageList.size();
     }
 
@@ -74,16 +65,17 @@ public class MessageHandler {
      * 
      * @return messageList.
      */
-    public LinkedList<MessageDTO> fetchMessageList() {
+    fetchMessageList() {
         return this.messageList;
     }
     /**
      * Updates real time date base.
      */
-    public void updateRTDB(){
+    updateRTDB(){
         return ;
     }
-    public static void main(String[] args) {
+
+    /*static void main(String[] args) {
         MessageHandler messageHandler = new MessageHandler();
         ClientMessageDTO cMessage = new ClientMessageDTO("Arbeta Agilt", "Anders Sjögren");
         ClientMessageDTO cMessage2 = new ClientMessageDTO("Arbeta Agilt IDIOT", "Anders Sjögren");
@@ -98,7 +90,5 @@ public class MessageHandler {
         msgList = messageHandler.fetchMessageList();
 
         System.out.println(msgList.getFirst().getPlainText());
-
-
-    }
+    }*/
 }

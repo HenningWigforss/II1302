@@ -1,20 +1,8 @@
-package BackEnd.Controller;
+export class BackEndController {
+    messageHandler;
+    messageChecker;
 
-import java.util.LinkedList;
-
-import BackEnd.DTO.ClientMessageDTO;
-import BackEnd.DTO.CommandMessageDTO;
-import BackEnd.DTO.MessageDTO;
-import BackEnd.Integration.HandlerCreator;
-import BackEnd.Model.MessageHandler;
-import BackEnd.Utility.MessageCheck;
-
-
-public class BackEndController {
-    MessageHandler messageHandler;
-    MessageCheck messageChecker;
-
-    public BackEndController(HandlerCreator handler) {
+    BackEndController(handler) {
         this.messageHandler = handler.getMessageHandler();
         this.messageChecker = handler.getMessageCheck();
     }
@@ -22,7 +10,7 @@ public class BackEndController {
     /**
      * Lets the Message Handler know the message is read.
      */
-    public void messageIsRead() {
+    messageIsRead() {
         messageHandler.removeRead();
     }
 
@@ -31,7 +19,7 @@ public class BackEndController {
      * 
      * @param msg clientMessageDTO from clientHandler.
      */
-    public void addMessage(ClientMessageDTO msg) {
+    addMessage(msg) {
         messageHandler.addMessage(msg);
     }
 
@@ -40,7 +28,7 @@ public class BackEndController {
      * 
      * @param cmd String representation
      */
-    public CommandMessageDTO fetchCommandMessage(String cmd) {
+    fetchCommandMessage(cmd) {
         return messageHandler.fetchCommandMessage(cmd);
     }
 
@@ -49,7 +37,7 @@ public class BackEndController {
      * 
      * @return messageList containing messageDTO
      */
-    public LinkedList<MessageDTO> fetchMessageList() {
+    fetchMessageList() {
         return messageHandler.fetchMessageList();
     }
 
@@ -58,7 +46,7 @@ public class BackEndController {
      * 
      * @return int queu size.
      */
-    public int getMessageInQueue() {
+    getMessageInQueue() {
         return messageHandler.getMessageInQueue();
     }
 
@@ -67,7 +55,7 @@ public class BackEndController {
      * 
      * @return MessageDTO
      */
-    public MessageDTO getFirstMessage() {
+    getFirstMessage() {
         return messageHandler.getFirstMessage();
     }
     /**
@@ -75,7 +63,7 @@ public class BackEndController {
      * @param text String containing the text.
      * @return Boolean true or false.
      */
-    public boolean checkMessage(String text){
+    checkMessage(text){
         return messageChecker.verifyMessage(text);
     }
 }

@@ -1,13 +1,11 @@
-package BackEnd.DTO;
-
 /**
  * The ClientMessageDTO class represents the client message as a
  * Data Transfer Object.
  */
 
-public class ClientMessageDTO {
-    private String plainText;
-    private String userName;
+export class ClientMessageDTO {
+    plainText;
+    userName;
 
     /**
      * Creates a new instance of the class ClientMessageDTO.
@@ -15,24 +13,24 @@ public class ClientMessageDTO {
      * @param msg  String containing message from user.
      * @param user String with the user name.
      */
-    public ClientMessageDTO(String msg, String user) {
+    ClientMessageDTO(msg, user) {
         this.plainText = msg;
         this.userName = user;
     }
 
-    public String getPlainText() {
+    getPlainText() {
         return this.plainText;
     }
 
-    public String getUserName() {
+    getUserName() {
         return this.userName;
     }
 
-    public void setPlainText(String msg) {
+    setPlainText(msg) {
         this.plainText = msg;
     }
 
-    public void setUserName(String user) {
+    setUserName(user) {
         this.userName = user;
     }
 }

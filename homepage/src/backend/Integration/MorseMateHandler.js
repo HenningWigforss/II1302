@@ -1,32 +1,26 @@
-package BackEnd.Integration;
-import BackEnd.Controller.BackEndController;
+export class MorseMateHandler {
+    controller;
 
-import BackEnd.DTO.ClientMessageDTO;
-import BackEnd.DTO.CommandMessageDTO;
-import BackEnd.Model.MessageHandler;
-
-public class MorseMateHandler {
-    BackEndController controller;
-
-    public MorseMateHandler(BackEndController c){
+    MorseMateHandler(c){
         this.controller = c;
     }
 
-    private void morseMateListener(){
+    morseMateListener(){
         
     }
 
-    public void removeRead(){
+    removeRead(){
         controller.messageIsRead();
     }
 
-    public String fetchMessage(){
-        CommandMessageDTO cmdMessage = controller.fetchCommandMessage("Default");
-        String morseCMD = cmdMessage.getCommand() + '|' + cmdMessage.getNumberInQueue() + '|' + cmdMessage.getMorseText();
+    fetchMessage(){
+        cmdMessage = controller.fetchCommandMessage("Default");
+        morseCMD = cmdMessage.getCommand() + '|' + cmdMessage.getNumberInQueue() + '|' + cmdMessage.getMorseText();
 
         return morseCMD;
     }
 
+    /*
     public static void main(String[] args){
         HandlerCreator hc = new HandlerCreator();
         BackEndController sc = new BackEndController(hc);
@@ -44,5 +38,5 @@ public class MorseMateHandler {
 
         cmd = mm.fetchMessage();
         System.out.println(cmd);
-    }
+    }*/
 }

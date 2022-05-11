@@ -1,25 +1,23 @@
-package BackEnd.DTO;
-
 /**
  * The MessageDTO class represents the client message as a
  * Data Transfer Object for the BackEnds use.
  */
 
-public class MessageDTO {
-    private String plainText;
-    private String morseText;
-    private String userName;
-    private int id;
-    private boolean status;
+class MessageDTO {
+    plainText;
+    morseText;
+    userName;
+    id;
+    status;
 
     /**
      * Creates a new instance of the class MessageDTO.
      * 
      * @param msgDTO object of type ClientMessageDTO containing information about
      *               the message.
-     * @param id     int containing the id for the message.
+     * @param id     containing the id for the message.
      */
-    public MessageDTO(ClientMessageDTO msgDTO, int id) {
+    MessageDTO(msgDTO, id) {
         this.userName = msgDTO.getUserName();
         this.plainText = msgDTO.getPlainText();
         this.morseText = null;
@@ -27,43 +25,43 @@ public class MessageDTO {
         this.status = false;
     }
 
-    public String getPlainText() {
+    getPlainText() {
         return this.plainText;
     }
 
-    public String getMorseText() {
+    getMorseText() {
         return this.morseText;
     }
 
-    public String getUserName() {
+    getUserName() {
         return this.userName;
     }
 
-    public boolean getStatus() {
+    getStatus() {
         return this.status;
     }
 
-    public int getId() {
+    getId() {
         return this.id;
     }
 
-    public void setPlainText(String msg) {
+    setPlainText(msg) {
         this.plainText = msg;
     }
 
-    public void setMorseText(String msg) {
+    setMorseText(msg) {
         this.morseText = msg;
     }
 
-    public void setUserName(String user) {
+    setUserName(user) {
         this.userName = user;
     }
 
-    public void setStatus(boolean st) {
+    setStatus(st) {
         this.status = st;
     }
 
-    public void setId(int id) {
+    setId(id) {
         this.id = id;
     }
 
