@@ -54,13 +54,25 @@
           </thead>
           <tbody>
             <tr v-for="(message, index) in mh.messageList" :key="message">
-              <td>{{ index+1 }}</td>
+              <td>{{ index + 1 }}</td>
               <td>{{ message.userName }}</td>
               <td>{{ message.submittedTime }}</td>
             </tr>
           </tbody>
         </table>
       </div>
+    </div>
+
+    <div>
+      <table class="adminTable">
+        <thead><tr><th colspan="2">Admin Tools</th></tr></thead>
+        <tbody>
+        <tr>
+          <td><button @click="mh.removeRead()">Remove Read</button></td>
+          <td><button @click="mh.clearMessageList()">Clear Messages</button></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
 
 
@@ -93,9 +105,6 @@ import { Options, Vue } from 'vue-class-component';
 import HelloWorld from '../components/HelloWorld.vue'; // @ is an alias to /src
 import MessageHandler from "../backend/Model/MessageHandler"
 import verifyMessage from "../backend/Utility/MessageCheck"
-//new firebase config
-import { getDatabase, ref, set } from 'firebase/database'
-import app from '../firebase'
 
 @Options({
   components: {
@@ -119,7 +128,7 @@ export default class HomeView extends Vue {
     }
     else {
       alert("Message was invalid. Try again with the included symbols")
-      console.error("Message was invalid. Try again.")
+      console.error("Message was invalid. Try again with the included symbols")
     }
   }
 

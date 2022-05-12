@@ -4,15 +4,15 @@
   </div>
 </template>
 
+
 //Send to firebase
 <script lang="ts">
 //new firebase config
 import { Options, Vue } from 'vue-class-component';
-import { getDatabase, ref, set } from 'firebase/database'
-import app from '../firebase'
 
 
 export default {
+  /*
   data () {
         return {
       messagesList:{
@@ -33,8 +33,9 @@ export default {
         // published: false
       });
      }
-  }   
+  }   */
 }
+
 </script>
 
 

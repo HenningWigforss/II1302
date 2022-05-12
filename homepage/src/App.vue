@@ -30,6 +30,14 @@ nav {
   }
 }
 
+button:hover{
+  background-color:#ffffff;
+}
+
+button:active{
+  background-color: #dcdcff;
+}
+
 .allowedSigns {
   font-size: small
 }
@@ -44,16 +52,16 @@ nav {
   margin-bottom: -50px;
 }
 
-table:not(.queueTable) {
+table:not(.queueTable):not(.adminTable) {
   width: auto;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
   border-spacing: 5px;
   display: inline-block;
 }
 
-table td:not(.queueTable td) {
+table td:not(.queueTable td):not(.adminTable td) {
   padding: 5px;
   font-weight:bold;
 }
@@ -75,6 +83,10 @@ table textarea {
 .queueTable td{
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.adminTable{
+  margin:auto;
 }
 
 p {

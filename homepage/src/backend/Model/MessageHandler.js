@@ -1,5 +1,6 @@
 import { translateString } from '../Utility/MorseTranslator'
-
+import { getDatabase, ref, set, onValue } from 'firebase/database'
+import { app } from '../../firebase'
 
 /**
  * Class that handles all messages from the client.
@@ -7,7 +8,11 @@ import { translateString } from '../Utility/MorseTranslator'
 export class MessageHandler {
     // Create a new instance of the message handler.
     constructor() {
-        this.messageList = []
+        const db = getDatabase()
+        const mLRef = ref(db, 'messageList')
+        onValue(mLRef, (snapshot) => {
+            this.messageList = snapshot.val()
+        })
     }
 
     addMessage(userName, msg) {
@@ -20,16 +25,21 @@ export class MessageHandler {
         this.messageList.push(newMessage);
         console.log("Added message: " + msg + " to the list. The list now contains " + this.messageList.length + " messages.")
         console.log(this.messageList)
+        this.updateRTDB()
     }
 
     getTime(){
         var date = new Date()
-        var hours = (date.getHours().length < 2) ? '0' + date.getHours() : date.getHours();
-        var minutes = (date.getMinutes().length < 2) ? '0' + date.getMinutes() : date.getMinutes();
-        var seconds = (date.getSeconds().length < 2) ? '0' + date.getSeconds() : date.getSeconds();
+        var hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours();
+        var minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
+        var seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
         var time = hours + ":" + minutes + ":" + seconds
 
         return time;
+    }
+
+    clearMessageList(){
+        this.messageList = [];
     }
 
     /**
@@ -38,13 +48,18 @@ export class MessageHandler {
      */
     removeRead() {
         this.messageList.shift();
+        this.updateRTDB()
     }
 
     /**
      * Updates real time date base.
      */
     updateRTDB() {
-        return;
+        const db = getDatabase();
+        set(ref(db), {
+            messageList: this.messageList,
+            cmdMessage: this.cmdMessage()
+          });
     }
 
     //Old MorseMateHandler
@@ -54,23 +69,6 @@ export class MessageHandler {
 
         return cmdMessage;
     }
-
-    /*static void main(String[] args) {
-        MessageHandler messageHandler = new MessageHandler();
-        ClientMessageDTO cMessage = new ClientMessageDTO("Arbeta Agilt", "Anders Sjögren");
-        ClientMessageDTO cMessage2 = new ClientMessageDTO("Arbeta Agilt IDIOT", "Anders Sjögren");
-
-        messageHandler.addMessage(cMessage);
-        messageHandler.addMessage(cMessage2);
-
-        System.out.println(messageHandler.getMessageInQueue());
-
-        LinkedList<MessageDTO> msgList = new LinkedList<>();
-
-        msgList = messageHandler.fetchMessageList();
-
-        System.out.println(msgList.getFirst().getPlainText());
-    }*/
 }
 
 export default MessageHandler
