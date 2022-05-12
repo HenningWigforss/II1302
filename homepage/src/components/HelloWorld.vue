@@ -5,13 +5,18 @@
 </template>
 
 <script lang="ts">
+//new firebase config
 import { Options, Vue } from 'vue-class-component';
+import { getDatabase, ref, set } from 'firebase/database'
+import app from '../firebase'
 
 @Options({
   props: {
     msg: String
   }
 })
+
+
 export default class HelloWorld extends Vue {
   msg!: string
 }
