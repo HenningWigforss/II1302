@@ -1,5 +1,6 @@
 import { translateString } from '../Utility/MorseTranslator'
 
+
 /**
  * Class that handles all messages from the client.
  */
@@ -14,11 +15,21 @@ export class MessageHandler {
             userName: userName,
             plainText: msg,
             morseText: translateString(msg),
-            //submittedTime: Date().getHours() + ":" + Date().getMinutes() + ":" + Date().getSeconds()
+            submittedTime: this.getTime()
         }
         this.messageList.push(newMessage);
         console.log("Added message: " + msg + " to the list. The list now contains " + this.messageList.length + " messages.")
         console.log(this.messageList)
+    }
+
+    getTime(){
+        var date = new Date()
+        var hours = (date.getHours().length < 2) ? '0' + date.getHours() : date.getHours();
+        var minutes = (date.getMinutes().length < 2) ? '0' + date.getMinutes() : date.getMinutes();
+        var seconds = (date.getSeconds().length < 2) ? '0' + date.getSeconds() : date.getSeconds();
+        var time = hours + ":" + minutes + ":" + seconds
+
+        return time;
     }
 
     /**

@@ -4,18 +4,6 @@
 
       <!-- picture of our logo -->
       <img class="logo" src="../assets/logo.png">
-
-      <!-- Description text of what Morse Mate is -->
-
-      <body>Morse Mate är ett system för Morse-kommunikation bestående av två delar.
-        Ett webbaserat användargränssnitt samt ett Arduino-chipkit.</body>
-
-      <body>En användare kan via hemsidan ange ett meddelande i form av vanlig text.
-        Detta meddelande skickas sedan via molnet där det först</body>
-
-      <body>översätts till Morse, för att sedan skickas till ett chipkit
-        som visar meddelandet i form av Morsesignaler.</body>
-      <br>
     </div>
 
     <div class="mainContent">
@@ -25,48 +13,56 @@
         <input type="text" v-model="userNameInput" placeholder="Username..." v-on:keypress.enter="submitUserInput()">
         <input type="text" v-model="messageInput" placeholder="Type message..." v-on:keypress.enter="submitUserInput()">
         <button type="button" value="submit" @click="submitUserInput()">Submit</button>
-        <label type="allowedSigns"> (A-Ö, 0-9, ?!,.-()@/%"';:)</label>
+        <br>
+        <label class="allowedSigns">Symbols allowed A-Ö, 0-9, ?!,.-()@/%"';:</label>
       </div>
 
       <!-- output fields -->
       <div>
-        <h3>Next Message:</h3>
+        <h4 class="nextMessage">Next Message</h4>
         <table>
           <tr>
             <td>
-              <fieldset>
-                <legend>Plain Text</legend>
-                <textarea v-model=nextPlainMessage id="textOutputPlain" cols="40" rows="4" readonly></textarea>
-              </fieldset>
+              Plain Text
             </td>
             <td>
-            <fieldset>
-              <legend>Morse Text</legend>
-              <textarea v-model=nextMorseMessage id="textOutputMorse" cols="40" rows="4" readonly></textarea>
-            </fieldset>
+              Morse Text
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <textarea v-model=nextPlainMessage id="textOutputPlain" cols="40" rows="5" readonly></textarea>
+            </td>
+            <td>
+              <textarea v-model=nextMorseMessage id="textOutputMorse" cols="40" rows="5" readonly></textarea>
             </td>
           </tr>
         </table>
-
-
       </div>
 
       <div class="table-responsive">
         <table class="queueTable" v-if="mh.messageList">
           <thead>
             <tr>
-              <th>Queue: {{ mh.messageList.length }}</th>
-              <!-- and so on -->
+              <th colspan="3">Message Queue: {{ mh.messageList.length }}</th>
+            </tr>
+            <tr>
+              <td>#</td>
+              <td>User</td>
+              <td>Time</td>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="message in mh.messageList" :key="message">
-              {{ message.userName }}
+            <tr v-for="(message, index) in mh.messageList" :key="message">
+              <td>{{ index+1 }}</td>
+              <td>{{ message.userName }}</td>
+              <td>{{ message.submittedTime }}</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+
 
     <div class="container">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

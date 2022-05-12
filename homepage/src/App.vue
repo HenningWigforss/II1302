@@ -12,6 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #f7f7ff
 }
 
 nav {
@@ -29,40 +30,55 @@ nav {
   }
 }
 
+.allowedSigns {
+  font-size: small
+}
+
+.nextMessage{
+  padding-top: 50px;
+  margin-bottom: -5px;
+}
+
 .logo {
-  height: 400px;
-  margin-bottom: -40px;
+  height: 500px;
+  margin-bottom: -50px;
 }
 
-.table-responsive{
-  margin-top:30px
-}
-
-table{
-  width: 50%;
+table:not(.queueTable) {
+  width: auto;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 50px;
+  border-spacing: 5px;
+  display: inline-block;
 }
 
-table td{
-  padding:0;
-  margin:0
+table td:not(.queueTable td) {
+  padding: 5px;
+  font-weight:bold;
 }
 
-.queueTable{
-  border-collapse: none;
-  margin: 0;
+table textarea {
+  text-align: center;
+}
+
+.queueTable {
   padding: 0;
-  width: 100%;
+  width: auto;
   table-layout: fixed;
+  margin: auto;
+  position: absolute;
+  top: 0; bottom: 0; right: 10%;
+  border: 1px solid;
+}
+
+.queueTable td{
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 p {
   font-size: small;
-}
-
-h3 {
-  padding-top: 20px;
 }
 
 // aboutMe peage
@@ -95,12 +111,8 @@ element.style {}
   margin-right: .5rem;
 }
 
-label{
-  display:block
-}
-
-fieldset legend{
-  font-size:medium
+label {
+  display: block
 }
 
 .contacts-social a {
