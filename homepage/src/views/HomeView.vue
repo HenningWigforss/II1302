@@ -94,10 +94,12 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-//import RTDB from '../firebase.js'
+import HelloWorld from '../components/HelloWorld.vue'; // @ is an alias to /src
 import MessageHandler from "../backend/Model/MessageHandler"
 import verifyMessage from "../backend/Utility/MessageCheck"
+//new firebase config
+import { getDatabase, ref, set } from 'firebase/database'
+import app from '../firebase'
 
 @Options({
   components: {
