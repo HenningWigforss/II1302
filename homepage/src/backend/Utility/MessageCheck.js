@@ -1,41 +1,29 @@
+import { morseAlphabet } from './MorseAlphabet'
+
 /**
- * Class that takes a string message from user and verifies that it does not
- * contain illegal characters.
+ * Checks if a message contains illegal characters.
  * 
- * @param String Message to check
- * @return boolean true if OK, false if NOT OK
+ * @msg String containing the message that is going to be checked.
+ * @return boolean, if it contains illegal characters then return false,
+ *         otherwise true.
  */
-export class MessageCheck {
-    /**
-     * Checks if a message contains illegal characters.
-     * 
-     * @msg String containing the message that is going to be checked.
-     * @return boolean, if it contains illegal characters then return false,
-     *         otherwise true.
-     */
-    verifyMessage(msg) {
-        var flag = true;
-        msg.toCharArray().forEach ((ch) => {
-            if (!testChar(ch)) {
-                flag = false;
-            }
-        })
-        return flag;
-    }
-
-    testChar(ch) {
-        var flag = false;
-        MorseAlphabet.alphabet.forEach (i => {
-            if (i[0].charAt(0) == Character.toLowerCase(ch))
-                flag = true;
-        })
-        return flag;
-    }
-
-    /*public static void main(String[] args) {
-        String str = "false";
-        MessageCheck msgCheck = new MessageCheck();
-        boolean check = msgCheck.verifyMessage(str);
-        System.out.println(check);
-    }*/
+export const verifyMessage = (msg) => {
+    var flag = true;
+    Array.from(msg).forEach((ch) => {
+        if (!testChar(ch)) {
+            flag = false;
+        }
+    })
+    return flag;
 }
+
+const testChar = (ch) => {
+    var flag = false;
+    morseAlphabet.forEach(i => {
+        if (i[0].charAt(0) == ch.toLowerCase())
+            flag = true;
+    })
+    return flag;
+}
+
+export default verifyMessage

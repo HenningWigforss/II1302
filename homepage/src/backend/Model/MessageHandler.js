@@ -1,46 +1,24 @@
+import { translateString } from '../Utility/MorseTranslator'
+
 /**
  * Class that handles all messages from the client.
  */
 export class MessageHandler {
-    nextId;
-    messageList;
-    morseTranslator;
-
     // Create a new instance of the message handler.
-    MessageHandler() {
-        this.nextId = 0
-        this.messageList
-        this.morseTranslator = new MorseTranslator();
+    constructor() {
+        this.messageList = []
     }
 
-    /**
-     * Adds a new message to the message list.
-     * 
-     * @param cMessage a ClientMessageDTO created by the client handler.
-     */
-    addMessage(cMessage) {
-        nextId++;
-        newMessage = new MessageDTO(cMessage, nextId);
-        morse = morseTranslator.translateString(newMessage.getPlainText());
-        newMessage.setMorseText(morse);
-        this.messageList.add(newMessage);
-    }
-
-    /**
-     * 
-     * @param cmd the command that is going to be attached to the command message
-     *            dto.
-     * @return a commandMessageDTO with all the info needed.
-     */
-    fetchCommandMessage(cmd) {
-        return new CommandMessageDTO(cmd, getMessageInQueue(), this.messageList.getFirst());
-    }
-    /**
-     * Gets the first message from list
-     * @return MessageDTO
-     */
-    getFirstMessage(){
-        return messageList.getFirst();
+    addMessage(userName, msg) {
+        var newMessage = {
+            userName: userName,
+            plainText: msg,
+            morseText: translateString(msg),
+            //submittedTime: Date().getHours() + ":" + Date().getMinutes() + ":" + Date().getSeconds()
+        }
+        this.messageList.push(newMessage);
+        console.log("Added message: " + msg + " to the list. The list now contains " + this.messageList.length + " messages.")
+        console.log(this.messageList)
     }
 
     /**
@@ -48,31 +26,22 @@ export class MessageHandler {
      * first message in queue.
      */
     removeRead() {
-        this.messageList.removeFirst();
+        this.messageList.shift();
     }
 
-    /**
-     * Method that returns the number of messages in the queue.
-     * 
-     * @return
-     */
-    getMessageInQueue() {
-        return this.messageList.size();
-    }
-
-    /**
-     * Method that returns the current message list.
-     * 
-     * @return messageList.
-     */
-    fetchMessageList() {
-        return this.messageList;
-    }
     /**
      * Updates real time date base.
      */
-    updateRTDB(){
-        return ;
+    updateRTDB() {
+        return;
+    }
+
+    //Old MorseMateHandler
+    cmdMessage(cmd) {
+        if(!cmd){ cmd = "Default" }
+        var cmdMessage = cmd + '|' + this.messageList.length + '|' + this.messageList[0].morseText;
+
+        return cmdMessage;
     }
 
     /*static void main(String[] args) {
@@ -92,3 +61,5 @@ export class MessageHandler {
         System.out.println(msgList.getFirst().getPlainText());
     }*/
 }
+
+export default MessageHandler
