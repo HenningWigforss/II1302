@@ -19,11 +19,21 @@
       
       <!-- input field and submit button -->
       <div>
-            <input type="text" v-model="messageInputFromUser" placeholder="Type message..." v-on:keypress.enter="submitUserInput()">   
-            <button type="button" value="submit" @click="submitUserInput()">Submit</button>
+            <input type="text" v-model="messageInputFromUser" placeholder="Type message..." v-on:keypress.enter="submitUserInput()">    -->
+             <button type="button" value="submit" @click="submitUserInput()">Submit</button>
+            <!-- <input type="text" v-model="message" placeholder="Type message..." v-on:keypress.enter="submitUserInput()">    
+            <button class="btn btn-outline-primary radius-15" type="button" value="submit" @click="submitMessage()">Submit</button> -->
             <label type="allowedSigns" > (A-Ö, 0-9, ?!,.-()@/%"';:)</label>
       </div>
+    <div> 
+      <h>
+        <p>
+          <a>
 
+          </a>
+        </p>
+      </h>
+    </div>
       <!-- output fields -->
       <div>
         <h3>Output</h3>
@@ -36,7 +46,7 @@
 
 
 
-
+<!-- footer webpage -->
 <div class="container">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <p class="col-md-4 mb-0 text-muted">&copy; 2022 Morsemate</p>
@@ -56,19 +66,58 @@
 
 
 
-  </div>
+</div>
 </template>
 
-<script lang="ts">
+
+
+
+
+
+
+
+<script>// Imports
+// import {messageRef} from '/firebase'
+// import { messageRef }  from 'firebase/app'
+// import { messageRef } from 'firebase/database';
+// import messageRef from 'firebase/compat/app'
+// import { messageRef } from 'firebase/compat/firestore'
+// // import { messageRef } from 'firebase/database';
+
+// // import '@firebase/firestore'
+
+// export default {
+//     data() {
+//       return {
+//       message: ''
+//       }
+//     },
+//     methods: {
+//       submitMessage(){
+//         messageRef.push({message:this.message, edit: false})
+//       }
+//     }
+// }
+
+
+
+
+
+
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import AboutViewVue from './AboutView.vue';
+import HelloWorld from '@/components/HelloWorld.vue';
+
+// import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
 @Options({
   components: {
-    HelloWorld,
+      HelloWorld,
   },
 })
 export default class HomeView extends Vue {
+
+
 
       messageInputFromUser = ''
       nextPlainMessage = ''
@@ -77,7 +126,7 @@ export default class HomeView extends Vue {
 
       //Submits the string message user inputs on webpage
       submitUserInput() {
-        this.nextPlainMessage = this.messageInputFromUser
+         this.nextPlainMessage = this.messageInputFromUser
         this.nextMorseMessage = this.messageInputFromUser
       }
 

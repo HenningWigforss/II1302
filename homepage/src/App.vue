@@ -1,14 +1,48 @@
 <template>
-  <nav>
+<div id="app">
+    <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
-  <router-view/>
+    <router-view/>
+</div>
+
+
 </template>
 
-import firebaseConfig from './components/firebaseConfig'
-import Firebase from 'firebase'
-Firebase.initializeApp(firebaseConfig)
+// import firebaseConfig from './components/firebaseConfig'
+// import Firebase from 'firebase'
+// Firebase.initializeApp(firebaseConfig)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style lang="scss">
 #app {
@@ -31,6 +65,7 @@ nav {
     }
   }
 }
+
 
 // aboutMe peage
 body{
