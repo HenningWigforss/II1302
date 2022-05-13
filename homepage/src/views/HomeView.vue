@@ -42,7 +42,7 @@
         </table>
       </div>
 
-      <div class="table-responsive">
+      <div>
         <table class="queueTable">
           <thead>
             <tr>
@@ -123,6 +123,18 @@ export default {
   methods: {
     //Submits the string message user inputs on webpage
     submitUserInput() {
+      if(this.messageInput == ''){
+        alert("You have to enter a message. Try again.")
+        console.error("You have to enter a message. Try again.")
+        return;
+      }
+
+      if(this.userNameInput == ''){
+        alert("You have to enter a username. Try again.")
+        console.error("You have to enter a username. Try again.")
+        return;
+      }
+
       if (verifyMessage(this.messageInput)) {
         this.mh.addMessage(this.userNameInput, this.messageInput)
         this.messageInput = ''

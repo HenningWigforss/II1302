@@ -101,7 +101,6 @@ p {
 // aboutMe peage
 body {
   background-color: #f7f7ff;
-  margin-top: 20px;
 }
 
 .radius-15 {
