@@ -12,12 +12,11 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: #f7f7ff
+  background-color: #e8e8ff;
 }
 
 nav {
   padding-top: 30px;
-  padding-bottom: 10px;
 
   a {
     font-weight: bold;
@@ -48,8 +47,9 @@ button:active{
 }
 
 .logo {
-  height: 500px;
-  margin-bottom: -50px;
+  height: 325px;
+  margin-top: 0px;
+  margin-bottom: 30px;
 }
 
 table:not(.queueTable):not(.adminTable) {

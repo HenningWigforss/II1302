@@ -65,12 +65,16 @@
 
     <div>
       <table class="adminTable">
-        <thead><tr><th colspan="2">Admin Tools</th></tr></thead>
+        <thead>
+          <tr>
+            <th colspan="2">Admin Tools</th>
+          </tr>
+        </thead>
         <tbody>
-        <tr>
-          <td><button @click="mh.removeRead()">Remove Read</button></td>
-          <td><button @click="mh.clearMessageList()">Clear Messages</button></td>
-        </tr>
+          <tr>
+            <td><button @click="mh.removeRead()">Remove Read</button></td>
+            <td><button @click="mh.clearMessageList()">Clear Messages</button></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -100,46 +104,57 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '../components/HelloWorld.vue'; // @ is an alias to /src
+<script>
+import { update } from '@firebase/database'
 import MessageHandler from "../backend/Model/MessageHandler"
 import verifyMessage from "../backend/Utility/MessageCheck"
 
-@Options({
-  components: {
-    HelloWorld,
+export default {
+  data() {
+    return {
+      mh: new MessageHandler(),
+      userNameInput: '',
+      messageInput: '',
+      nextPlainMessage: '',
+      nextMorseMessage: '',
+      name: 'App',
+    }
   },
-})
-export default class HomeView extends Vue {
-  mh = new MessageHandler();
-  userNameInput = ''
-  messageInput = ''
-  nextPlainMessage = ''
-  nextMorseMessage = ''
-  name = 'App'
 
-  //Submits the string message user inputs on webpage
-  submitUserInput() {
-    if (verifyMessage(this.messageInput)) {
-      this.mh.addMessage(this.userNameInput, this.messageInput)
-      this.retrieveNextMorseMessage()
-      this.retrieveNextPlainMessage()
+  methods: {
+    //Submits the string message user inputs on webpage
+    submitUserInput() {
+      if (verifyMessage(this.messageInput)) {
+        this.mh.addMessage(this.userNameInput, this.messageInput)
+        this.retrieveNextPlainMessage()
+        this.retrieveNextMorseMessage()
+      }
+      else {
+        alert("Message was invalid. Try again with the included symbols")
+        console.error("Message was invalid. Try again with the included symbols")
+      }
+    },
+
+    //retrieves the plain message that is first in queue
+    retrieveNextPlainMessage() {
+      
+      this.nextPlainMessage = this.mh.messageList[0] ? this.mh.messageList[0].plainText : ''
+    },
+
+    //retrieves the morse translated message that is first in queue
+    retrieveNextMorseMessage() {
+      this.nextMorseMessage = this.mh.messageList[0] ? this.mh.messageList[0].morseText : ''
+    },
+  },
+  watch: {
+    mh: {
+      deep: true,
+
+      handler() {
+        this.retrieveNextPlainMessage()
+        this.retrieveNextMorseMessage()
+      }
     }
-    else {
-      alert("Message was invalid. Try again with the included symbols")
-      console.error("Message was invalid. Try again with the included symbols")
-    }
-  }
-
-  //retrieves the plain message that is first in queue
-  retrieveNextPlainMessage() {
-    this.nextPlainMessage = this.mh.messageList[0].plainText
-  }
-
-  //retrieves the morse translated message that is first in queue
-  retrieveNextMorseMessage() {
-    this.nextMorseMessage = this.mh.messageList[0].morseText
   }
 }
 </script>

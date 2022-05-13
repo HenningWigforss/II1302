@@ -11,7 +11,10 @@ export class MessageHandler {
         const db = getDatabase()
         const mLRef = ref(db, 'messageList')
         onValue(mLRef, (snapshot) => {
-            this.messageList = snapshot.val()
+            if (snapshot.val())
+                this.messageList = snapshot.val()
+            else
+                this.messageList = []
         })
     }
 
@@ -28,7 +31,7 @@ export class MessageHandler {
         this.updateRTDB()
     }
 
-    getTime(){
+    getTime() {
         var date = new Date()
         var hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours();
         var minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
@@ -38,7 +41,7 @@ export class MessageHandler {
         return time;
     }
 
-    clearMessageList(){
+    clearMessageList() {
         this.messageList = [];
     }
 
@@ -47,7 +50,10 @@ export class MessageHandler {
      * first message in queue.
      */
     removeRead() {
-        this.messageList.shift();
+        if (this.messageList.length > 1)
+            this.messageList.shift();
+        else
+            this.messageList = []
         this.updateRTDB()
     }
 
@@ -59,13 +65,16 @@ export class MessageHandler {
         set(ref(db), {
             messageList: this.messageList,
             cmdMessage: this.cmdMessage()
-          });
+        });
     }
 
     //Old MorseMateHandler
     cmdMessage(cmd) {
-        if(!cmd){ cmd = "Default" }
-        var cmdMessage = cmd + '|' + this.messageList.length + '|' + this.messageList[0].morseText;
+        if (!cmd) { cmd = "Default" }
+        if (this.messageList[0])
+            var cmdMessage = cmd + '|' + this.messageList.length + '|' + this.messageList[0].morseText;
+        else
+            cmdMessage = cmd + '|' + 0 + '|' + ""
 
         return cmdMessage;
     }
