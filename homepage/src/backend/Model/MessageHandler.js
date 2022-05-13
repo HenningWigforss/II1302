@@ -9,13 +9,12 @@ export class MessageHandler {
     // Create a new instance of the message handler.
     constructor() {
         const db = getDatabase()
-        const mLRef = ref(db, 'messageList')
+        const mLRef = ref(db)
         onValue(mLRef, (snapshot) => {
-            if (snapshot.val())
-                this.messageList = snapshot.val()
-            else
-                this.messageList = []
-        })
+                this.messageList = snapshot.child('messageList').val() ? snapshot.child('messageList').val() : []
+                this.nextPlainMessage = snapshot.child('nextPlainMessage').val() ? snapshot.child('nextPlainMessage').val() : ''
+                this.nextMorseMessage = snapshot.child('nextMorseMessage').val() ? snapshot.child('nextMorseMessage').val() : ''
+            })
     }
 
     addMessage(userName, msg) {
@@ -26,8 +25,11 @@ export class MessageHandler {
             submittedTime: this.getTime()
         }
         this.messageList.push(newMessage);
-        console.log("Added message: " + msg + " to the list. The list now contains " + this.messageList.length + " messages.")
-        console.log(this.messageList)
+    
+        //console.log("Added message: " + msg + " to the list. The list now contains " + this.messageList.length + " messages.")
+        //console.log(this.messageList)
+
+        this.updateNextMessage()
         this.updateRTDB()
     }
 
@@ -42,7 +44,10 @@ export class MessageHandler {
     }
 
     clearMessageList() {
-        this.messageList = [];
+        this.messageList = []
+        this.nextMorseMessage = ''
+        this.nextPlainMessage = ''
+        this.updateRTDB()
     }
 
     /**
@@ -50,11 +55,18 @@ export class MessageHandler {
      * first message in queue.
      */
     removeRead() {
-        if (this.messageList.length > 1)
+        if (this.messageList.length > 1){
             this.messageList.shift();
+            this.updateNextMessage()
+        }
         else
-            this.messageList = []
+            this.clearMessageList()
         this.updateRTDB()
+    }
+
+    updateNextMessage(){
+        this.nextMorseMessage = this.messageList[0].morseText
+        this.nextPlainMessage = this.messageList[0].plainText
     }
 
     /**
@@ -64,7 +76,9 @@ export class MessageHandler {
         const db = getDatabase();
         set(ref(db), {
             messageList: this.messageList,
-            cmdMessage: this.cmdMessage()
+            nextMorseMessage: this.nextMorseMessage,
+            nextPlainMessage: this.nextPlainMessage,
+            cmdMessage: this.cmdMessage(),
         });
     }
 
@@ -72,7 +86,7 @@ export class MessageHandler {
     cmdMessage(cmd) {
         if (!cmd) { cmd = "Default" }
         if (this.messageList[0])
-            var cmdMessage = cmd + '|' + this.messageList.length + '|' + this.messageList[0].morseText;
+            var cmdMessage = cmd + '|' + this.messageList.length + '|' + this.nextMorseMessage;
         else
             cmdMessage = cmd + '|' + 0 + '|' + ""
 

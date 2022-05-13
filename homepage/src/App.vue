@@ -59,11 +59,14 @@ table:not(.queueTable):not(.adminTable) {
   padding-bottom: 40px;
   border-spacing: 5px;
   display: inline-block;
+  margin-top: 20px;
 }
 
 table td:not(.queueTable td):not(.adminTable td) {
   padding: 5px;
-  font-weight:bold;
+  width: 250px;
+  height: 100px;
+  border: 1px solid;
 }
 
 table textarea {

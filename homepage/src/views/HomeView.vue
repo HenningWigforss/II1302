@@ -21,30 +21,32 @@
       <div>
         <h4 class="nextMessage">Next Message</h4>
         <table>
+          <thead>
+            <tr>
+              <th>
+                Plain Text
+              </th>
+              <th>
+                Morse Text
+              </th>
+            </tr>
+          </thead>
           <tr>
             <td>
-              Plain Text
+              {{ mh.nextPlainMessage }}
             </td>
             <td>
-              Morse Text
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <textarea v-model=nextPlainMessage id="textOutputPlain" cols="40" rows="5" readonly></textarea>
-            </td>
-            <td>
-              <textarea v-model=nextMorseMessage id="textOutputMorse" cols="40" rows="5" readonly></textarea>
+              {{ mh.nextMorseMessage }}
             </td>
           </tr>
         </table>
       </div>
 
       <div class="table-responsive">
-        <table class="queueTable" v-if="mh.messageList">
+        <table class="queueTable">
           <thead>
             <tr>
-              <th colspan="3">Message Queue: {{ mh.messageList.length }}</th>
+              <th colspan="3">Message Queue</th>
             </tr>
             <tr>
               <td>#</td>
@@ -52,7 +54,7 @@
               <td>Time</td>
             </tr>
           </thead>
-          <tbody>
+          <tbody v-if="mh.messageList">
             <tr v-for="(message, index) in mh.messageList" :key="message">
               <td>{{ index + 1 }}</td>
               <td>{{ message.userName }}</td>
@@ -105,7 +107,6 @@
 </template>
 
 <script>
-import { update } from '@firebase/database'
 import MessageHandler from "../backend/Model/MessageHandler"
 import verifyMessage from "../backend/Utility/MessageCheck"
 
@@ -115,8 +116,6 @@ export default {
       mh: new MessageHandler(),
       userNameInput: '',
       messageInput: '',
-      nextPlainMessage: '',
-      nextMorseMessage: '',
       name: 'App',
     }
   },
@@ -126,33 +125,11 @@ export default {
     submitUserInput() {
       if (verifyMessage(this.messageInput)) {
         this.mh.addMessage(this.userNameInput, this.messageInput)
-        this.retrieveNextPlainMessage()
-        this.retrieveNextMorseMessage()
+        this.messageInput = ''
       }
       else {
         alert("Message was invalid. Try again with the included symbols")
         console.error("Message was invalid. Try again with the included symbols")
-      }
-    },
-
-    //retrieves the plain message that is first in queue
-    retrieveNextPlainMessage() {
-      
-      this.nextPlainMessage = this.mh.messageList[0] ? this.mh.messageList[0].plainText : ''
-    },
-
-    //retrieves the morse translated message that is first in queue
-    retrieveNextMorseMessage() {
-      this.nextMorseMessage = this.mh.messageList[0] ? this.mh.messageList[0].morseText : ''
-    },
-  },
-  watch: {
-    mh: {
-      deep: true,
-
-      handler() {
-        this.retrieveNextPlainMessage()
-        this.retrieveNextMorseMessage()
       }
     }
   }
