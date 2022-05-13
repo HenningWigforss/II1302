@@ -54,88 +54,7 @@ void wordPause() {
   delay(4 * timeUnit); // An extra delay of 2 time units after each word (4 since we already have a 3 time unit delay after each letter)
 }
 
-//The whole morse alphabet defined, the function returns the morse translation of a single letter.
-String morseAlphabet(char letter) {
-  if (isalpha(letter)) {
-    letter = tolower(letter);
-  }
-
-  //The alphabet contains (A-Ö, 0-9, ?!,.-()@/%"';:)
-  String alphabet[][2] = {
-    {"a", ".- "},
-    {"b", "-... "},
-    {"c", "-.-. "},
-    {"d", "-.. "},
-    {"e", ". "},
-    {"f", "..-. "},
-    {"g", "--. "},
-    {"h", ".... "},
-    {"i", ".. "},
-    {"j", ".--- "},
-    {"k", "-.- "},
-    {"l", ".-.. "},
-    {"m", "-- "},
-    {"n", "-. "},
-    {"o", "--- "},
-    {"p", ".--. "},
-    {"q", "--.- "},
-    {"r", ".-. "},
-    {"s", "... "},
-    {"t", "- "},
-    {"u", "..- "},
-    {"v", "...- "},
-    {"w", ".-- "},
-    {"x", "-..- "},
-    {"y", "-.-- "},
-    {"z", "--.. "},
-    {"å", ".--.- "},
-    {"ä", ".-.- "},
-    {"ö", "---. "},
-    {"1", ".---- "},
-    {"2", "..--- "},
-    {"3", "...-- "},
-    {"4", "....- "},
-    {"5", "..... "},
-    {"6", "-.... "},
-    {"7", "--... "},
-    {"8", "---.. "},
-    {"9", "----. "},
-    {"0", "----- "},
-    {"?", "..--.. "},
-    {"!", "..--. "},
-    {",", "--..-- "},
-    {".", ".-.-.- "},
-    {"(", "-.--. "},
-    {")", "-.--.- "},
-    {"@", ".--.-. "},
-    {"/", "-..-. "},
-    {"%", ".--.. "},
-    {"\"", ".-..-. "},
-    {"'", ".----. "},
-    {";", "-.-.-. "},
-    {":", "---... "},
-    {" ", ","}
-  };
-
-  //Loop through the alphabet to find the letter, then return it's morse translation.
-  for (auto i : alphabet) {
-    if (i[0][0] == letter) {
-      return i[1];
-    }
-  }
-
-  return "";
-}
-
-//Translates a full string and returns the translation as a string.
-String translateMorse(String message) {
-  String morseMessage = "";
-  for (auto i : message) {
-    morseMessage += morseAlphabet(i);
-  }
-  return morseMessage;
-}
-
+//Splits the CMD string and returns a specific part. The CMD string is as follows "CMD|Queue Number|Morse Message"
 String cmdSplit(String data, char separator, int index){
   int amount = 0;
   int cmdArr[] = {0, -1};
@@ -154,9 +73,7 @@ String cmdSplit(String data, char separator, int index){
 
 //Updates the message queue, turning on the leds needed.
 void updateQueue() {
-  //Fetch the queue amount
-  String cmdMessage = "1|Plain Text|Morse Translation";
-  int queue = cmdSplit(cmdMessage, '|', 0)[0] - '0';
+  int queue = cmdSplit(fetchCMD(), '|', 0)[0] - '0';
 
   //Turn on the leds to show the current queue.
   for (int pin = firstQueueLed; pin < queue + firstQueueLed; pin++) {
@@ -171,9 +88,17 @@ void updateQueue() {
 
 //Fetches the next message from the server, removes the queue number.
 String fetchMessage() {
-  String cmdMessage = "1|Plain Text|Arbeta Agilt";
-  String message = cmdSplit(cmdMessage, '|', 2);
+  String message = cmdSplit(fetchCMD(), '|', 2);
   return translateMorse(message);
+}
+
+String fetchCMD(){
+  //Get CMD string from Firebase
+  
+  //Manually set message for testing
+  String cmdMessage = "CMD|1|.- .-. -... . - .- ,.- --. .. .-.. -";
+  
+  return cmdMessage;
 }
 
 void playMessage(String morseMessage) {

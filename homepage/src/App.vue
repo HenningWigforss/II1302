@@ -67,6 +67,7 @@ table td:not(.queueTable td):not(.adminTable td) {
   width: 250px;
   height: 100px;
   border: 1px solid;
+  background-color:#ffffff;
 }
 
 table textarea {
@@ -81,6 +82,7 @@ table textarea {
   position: absolute;
   top: 0; bottom: 0; right: 10%;
   border: 1px solid;
+    background-color:#ffffff;
 }
 
 .queueTable td{
