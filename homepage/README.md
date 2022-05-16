@@ -16,6 +16,7 @@ npm run build
 ```
 ### Compiles Tests/unit (with that commando you can test all file in the test:unit )
 ```
+vue add unit-jest
 npm run test:unit
 ```
 
