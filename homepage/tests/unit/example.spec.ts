@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
-import HomeView from '@/components/HomeView.vue'
+import HomeView from '@/views/HomeView.vue'
 
-describe('HelloWorld.vue', () => {
+describe('HomeView.vue', () => {
   it('renders props.msg when passed', () => {
     const msg = 'new message'
     const wrapper = shallowMount(HomeView, {
