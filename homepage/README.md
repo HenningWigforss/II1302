@@ -14,6 +14,10 @@ npm run serve
 ```
 npm run build
 ```
+### Compiles Tests/unit (with that commando you can test all file in the test:unit )
+```
+npm run test:unit
+```
 
 ### Lints and fixes files
 ```
