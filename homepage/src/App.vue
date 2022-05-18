@@ -50,17 +50,26 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
+    align-content: center;
     color: #2c3e50;
     background-color: #e8e8ff;
   }
 
+  //navigation field. The field that lets us 
   nav {
-    padding-top: 30px;
-
+    padding-top: 25px;
+    background-color: #aeaed1;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
     a {
+      text-align: center;
+      text-decoration: none;
+
       font-weight: bold;
+      font-size:large;
       color: #2c3e50;
-      padding-right: 10px;
+      padding: 10px;
 
       &.router-link-exact-active {
         color: #42b983;
@@ -68,8 +77,49 @@
     }
   }
 
+  //header with logo
+  header {
+    padding-top: 50px;
+    .logo { 
+      height: 200px;
+      margin-top: 0px;
+      margin-bottom: 30px;
+    }
+  }
+
+  //homepage input stuff
+  .messageInputField{
+    .messageInputField::placeholder {
+      text-align: end;
+    }
+
+    
+    background-color: #42b983;
+    padding-top: 100px;
+    margin-bottom: -5px;
+
+
+    width: 40%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+  .nameInputField{
+    margin-bottom: 5px;
+    margin-top: 20px;
+  }
+
+  //output label
   .nextMessage{
-   word-wrap: break-word;
+    text-align: center;
+    word-wrap: break-word;
+    padding-top: 50px;
+    margin-bottom: -5px;
   }
 
   button:hover{
@@ -82,17 +132,6 @@
 
   .allowedSigns {
     font-size: small
-  }
-
-  .nextMessage{
-    padding-top: 50px;
-    margin-bottom: -5px;
-  }
-
-  .logo {
-    height: 200px;
-    margin-top: 0px;
-    margin-bottom: 30px;
   }
 
   table:not(.queueTable):not(.adminTable) {
@@ -149,6 +188,7 @@
   .radius-15 {
     border-radius: 15px;
   }
+
 
   .card {
     position: relative;
