@@ -1,3 +1,4 @@
+<!-- Page describing our project-->
 <title>About MorseMate</title>
 <template>
 
@@ -27,4 +28,5 @@
     <img class="MorseMateAlphabet" src="https://github.com/HenningWigforss/II1302/raw/main/icons/mars.jpg" >
 
   </div>
+
 </template>

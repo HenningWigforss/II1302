@@ -236,6 +236,7 @@
     background-color: #0976b4 !important;
   }
 
+// About Project
 .Concept {
   height: 500px;
   margin-top: 0px;
@@ -247,7 +248,7 @@
   margin-bottom: 30px;
 }
 
-.aboutProject {
+.AboutProject {
   text-align: left;
 }
 </style>
