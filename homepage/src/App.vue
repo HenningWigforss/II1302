@@ -180,7 +180,7 @@
     font-size: small;
   }
 
-  // about Us page
+  // aboutUs page
   body {
     background-color: #f7f7ff;
   }
