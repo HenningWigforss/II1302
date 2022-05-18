@@ -5,8 +5,9 @@
 
       <!-- input field and submit button -->
       <div>
-        <input type="text" v-model="userNameInput" placeholder="Username..." v-on:keypress.enter="submitUserInput()">
-        <input type="text" v-model="messageInput" placeholder="Type message..." v-on:keypress.enter="submitUserInput()">
+        <input class="messageInputField" type="textarea" v-model="messageInput" placeholder="Type message..." v-on:keypress.enter="submitUserInput()">
+        <br>
+        <input class="nameInputField" type="text" v-model="userNameInput" placeholder="Name..." v-on:keypress.enter="submitUserInput()">
         <button type="button" value="submit" @click="submitUserInput()">Submit</button>
         <br>
         <label class="allowedSigns">Symbols allowed A-Ö, 0-9, ?!,.-()@/%"';: <br> Maximum message size: 200 symbols.</label>
