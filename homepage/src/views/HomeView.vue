@@ -40,7 +40,6 @@
       
       <!-- queue side bar -->
       <div>
-        <th>Message Queue</th>
         <table class="queueTable">
           <thead>
             <tr>
