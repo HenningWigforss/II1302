@@ -8,13 +8,13 @@ import { morseAlphabet } from './MorseAlphabet'
  *         otherwise true.
  */
 export const verifyMessage = (msg) => {
-    var flag = true;
+    var errorChar = 0;
     Array.from(msg).forEach((ch) => {
         if (!testChar(ch)) {
-            flag = false;
+            errorChar = ch;
         }
     })
-    return flag;
+    return errorChar;
 }
 
 const testChar = (ch) => {

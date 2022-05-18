@@ -9,7 +9,7 @@
         <input type="text" v-model="messageInput" placeholder="Type message..." v-on:keypress.enter="submitUserInput()">
         <button type="button" value="submit" @click="submitUserInput()">Submit</button>
         <br>
-        <label class="allowedSigns">Symbols allowed A-Ö, 0-9, ?!,.-()@/%"';:</label>
+        <label class="allowedSigns">Symbols allowed A-Ö, 0-9, ?!,.-()@/%"';: <br> Maximum message size: 200 symbols.</label>
       </div>
 
       <!-- output fields -->
@@ -27,10 +27,10 @@
             </tr>
           </thead>
           <tr>
-            <td>
+            <td class="nextMessage">
               {{ mh.nextPlainMessage }}
             </td>
-            <td>
+            <td class="nextMessage">
               {{ mh.nextMorseMessage }}
             </td>
           </tr>
@@ -102,6 +102,11 @@ export default {
   methods: {
     //Submits the string message user inputs on webpage
     submitUserInput() {
+      if(this.messageInput.length > 200){
+        alert("Message is longer than the maximum size. You can't send messages longer than 200 symbols.")
+        console.error("Message is longer than the maximum size. You can't send messages longer than 200 symbols.")
+      }
+
       if(this.messageInput == ''){
         alert("You have to enter a message. Try again.")
         console.error("You have to enter a message. Try again.")
@@ -114,12 +119,13 @@ export default {
         return;
       }
 
-      if (verifyMessage(this.messageInput)) {
+      var errorChar = verifyMessage(this.messageInput)
+      if (!errorChar) {
         this.mh.addMessage(this.userNameInput, this.messageInput)
         this.messageInput = ''
       }
       else {
-        alert("Message was invalid. Try again with the included symbols")
+        alert("Message was invalid, you used the char " + errorChar + ". Try again with the included symbols")
         console.error("Message was invalid. Try again with the included symbols")
       }
     }
