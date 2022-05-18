@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <div class="home">
-
-      <!-- picture of our logo -->
-      <img class="logo" src="../assets/logo.png">
-    </div>
 
     <div class="mainContent">
 
@@ -42,7 +37,10 @@
         </table>
       </div>
 
+      
+      <!-- queue side bar -->
       <div>
+        <th>Message Queue</th>
         <table class="queueTable">
           <thead>
             <tr>
@@ -65,6 +63,8 @@
       </div>
     </div>
 
+
+    <!-- admin options -->
     <div>
       <table class="adminTable">
         <thead>
@@ -81,27 +81,6 @@
       </table>
     </div>
 
-
-    <div class="container">
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-muted">&copy; 2022 Morsemate</p>
-
-        <a href="/"
-          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-          <svg class="bi me-2" width="40" height="32">
-            <use xlink:href="#bootstrap" />
-          </svg>
-        </a>
-        <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="https://github.com/HenningWigforss/II1302/wiki"
-              class="nav-link px-2 text-muted">Github</a></li>
-          <li class="nav-item"><a href="https://canvas.kth.se/groups/188033/wiki"
-              class="nav-link px-2 text-muted">Canvas Side</a></li>
-          <li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About</a></li>
-        </ul>
-      </footer>
-    </div>
 
   </div>
 </template>
