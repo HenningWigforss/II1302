@@ -3,7 +3,8 @@
     <!-- navigation menu -->
     <nav>
       <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About Us</router-link>
+      <router-link to="/aboutProject">About Project</router-link>
     </nav>
 
     <!-- header with logo -->
@@ -190,4 +191,19 @@
   .bg-linkedin {
     background-color: #0976b4 !important;
   }
+
+.Concept {
+  height: 500px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+.MorseMateAlphabet {
+  height: 500px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.aboutProject {
+  text-align: left;
+}
 </style>
