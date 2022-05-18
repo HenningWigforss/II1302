@@ -29,6 +29,10 @@ nav {
   }
 }
 
+.nextMessage{
+   word-wrap: break-word;
+}
+
 button:hover{
   background-color:#ffffff;
 }
