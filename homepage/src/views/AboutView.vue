@@ -2,15 +2,7 @@
   <div class="about">
     <!-- Description text of what Morse Mate is -->
 
-    <p>Morse Mate är ett system för Morse-kommunikation bestående av två delar.
-      Ett webbaserat användargränssnitt samt ett Arduino-chipkit.</p>
 
-    <p>En användare kan via hemsidan ange ett meddelande i form av vanlig text.
-      Detta meddelande skickas sedan via molnet där det först</p>
-
-    <p>översätts till Morse, för att sedan skickas till ett chipkit
-      som visar meddelandet i form av Morsesignaler.</p>
-    <br>
     <h1>Contact Us </h1>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
     <div class="container">
