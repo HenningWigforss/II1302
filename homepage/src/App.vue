@@ -189,7 +189,6 @@
     border-radius: 15px;
   }
 
-
   .card {
     position: relative;
     display: flex;
@@ -242,6 +241,13 @@
   margin-top: 0px;
   margin-bottom: 30px;
 }
+
+.Prototype {
+  height: 500px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
 .MorseMateAlphabet {
   height: 500px;
   margin-top: 0px;
@@ -250,5 +256,24 @@
 
 .AboutProject {
   text-align: left;
+  .Header {
+    text-align: center;
+  }
+  .AboutMorseMate{
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+  .Uses{
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+  .conceptText{
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+  .AboutMorse{
+    padding-right: 3em;
+    padding-left: 3em;
+  }
 }
 </style>
