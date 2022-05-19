@@ -48,7 +48,8 @@
         <img class="Prototype" alt="centered image" src="../assets/MorseMate.jpg">
       </center>
       <div class="conceptText">
-         <p>Detta är prototypen av enheten MorseMate. Den består av en Arduino Uno, en breadboard, dioder, resistorer, kablar och en högtalare. På bilden är inte systemet anslutet till något WiFi - chip. </p>
+         <p>Detta är prototypen av enheten MorseMate. Den består av en Arduino Uno, en breadboard, dioder, 
+           resistorer, kablar och en högtalare. På bilden är inte systemet anslutet till något WiFi - chip. </p>
       </div>
 
 <!-- About Morse in general  -->
@@ -60,7 +61,7 @@
             dagens maskintelegrafi och datorkommunikationsutrustning – avsett att hanteras av människor, 
             och ger en betydligt långsammare överföringshastighet än vad man i en ostörd miljö idag kan 
             uppnå med maskiners hjälp. För mer information se <a href="https://sv.wikipedia.org/wiki/Morsealfabetet"
-              >Wikipedia</a></p>        
+              >Wikipedia</a>.</p>        
         </div>
         <center>
           <img class="MorseMateAlphabet" src="https://github.com/HenningWigforss/II1302/raw/main/icons/mars.jpg" >

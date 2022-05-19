@@ -1,7 +1,16 @@
 <template>
   <div class="about">
     <!-- Description text of what Morse Mate is -->
-
+      <div class="Header">
+        <h1>II1302</h1>
+      </div>
+    <div class="CourseInfo">
+      <p>Detta projekt har genomförts under kursen II1302 Projekt och projektmetoder 7,5 hp på KTH - Kista.
+         Kursen syftar till att utveckla studentens förmåga att genomföra ett konstruktionsprojekt inom IT. 
+         Projektet genomförs tillsammans med andra studenter i en mindre projektgrupp. Målet är att ge 
+         studenten en bas för effektivt deltagande och ledning av IT. Mer information om kursen kan hittas på kursens 
+         <a href="https://www.kth.se/student/kurser/kurs/II1302">hemsida</a></p>
+    </div>
 
     <h1>Contact Us </h1>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">

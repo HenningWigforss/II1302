@@ -235,6 +235,12 @@
     background-color: #0976b4 !important;
   }
 
+  .CourseInfo{
+    text-align: left;
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+
 // About Project
 .Concept {
   height: 500px;
