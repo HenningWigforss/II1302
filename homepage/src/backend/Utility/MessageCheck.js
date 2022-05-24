@@ -8,6 +8,7 @@ import { morseAlphabet } from './MorseAlphabet'
  *         otherwise true.
  */
 export const verifyMessage = (msg, username) => {
+    var error = 0;
     if (username == '') {
         return "You have to enter a username. Try again.";
     }
@@ -26,11 +27,11 @@ export const verifyMessage = (msg, username) => {
 
     Array.from(msg).forEach((ch) => {
         if (!testChar(ch)) {
-            return "Message was invalid, you used the char " + ch + ". Try again with the included symbols"
+            error = "Message was invalid, you used the char " + ch + ". Try again with the included symbols"
         }
     })
 
-    return 0;
+    return error;
 }
 
 const testChar = (ch) => {
