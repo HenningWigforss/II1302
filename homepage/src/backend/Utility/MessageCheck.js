@@ -1,11 +1,9 @@
 import { morseAlphabet } from './MorseAlphabet'
 
 /**
- * Checks if a message contains illegal characters.
- * 
- * @msg String containing the message that is going to be checked.
- * @return boolean, if it contains illegal characters then return false,
- *         otherwise true.
+ * Checks if a message is empty, contains illegal characters or is too long. 
+ * Also checks if the username is empty or too long.
+ * Will return a string to be displayed by the view if an error occurs.
  */
 export const verifyMessage = (msg, username) => {
     var error = 0;
@@ -34,6 +32,9 @@ export const verifyMessage = (msg, username) => {
     return error;
 }
 
+/**
+ * Tests a single char and looks for it in the Morse Alphabet.
+ */
 const testChar = (ch) => {
     var flag = false;
     morseAlphabet.forEach(i => {
